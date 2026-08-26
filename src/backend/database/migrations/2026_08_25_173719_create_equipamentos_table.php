@@ -24,9 +24,6 @@ return new class extends Migration
             // Coluna que aceita valor nulo (DEFAULT NULL no Workbench)
             $table->string('equipamentos_col', 45)->nullable();
 
-            // Define explicitamente a chave primária
-            $table->primary('num_equipamentos');
-
             // Índices (KEY) das salas e computadores
             $table->index('num_sala', 'fk_sala_idx');
             $table->index('num_computador', 'fk_computador_idx');
