@@ -39,6 +39,7 @@ return new class extends Migration
             $table->foreign('num_equipamento', 'fk_chamados_equipment') // Encurtado para evitar limite de caracteres do MySQL
                   ->references('num_equipamentos')
                   ->on('equipamentos');
+                  $table->timestamps();
         });
     }
 

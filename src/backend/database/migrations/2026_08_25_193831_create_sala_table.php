@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sala', function (Blueprint $table) {
-            $table->id();
+            // Chave primária simples (num_sala) - Sem auto-incremento
+            $table->integer('num_sala')->id()->primary();
+            
+            // Campo de texto para o prédio
+            $table->string('predio', 30);
             $table->timestamps();
         });
     }
