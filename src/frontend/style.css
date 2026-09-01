@@ -1,6 +1,33 @@
 @import "tailwindcss";
 
-div{
-    /* font-family: */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+@theme {
+
+    /* Cor principal */
+    --color-accent: #D9172A;
+
+    /* Cores de fundo */
+    --color-fundo-fundo:#1F1D33;
+    --color-fundo-medio:#26253E;
+    --color-fundo-razo:#3A385C;
+
+    /* Cores de fonte, primaria e secundária */
+    
+    --color-pri:#FFFFFF;  
+    --color-sec:#B2B1C4;
+
+    /* Cores secundárias */
+
+    --color-sec-verde:#0CC955;
+    --color-sec-amarelo:#FF961D;
+    --color-sec-vermelho:#D9172A;
+    --color-sec-azul:#1772D9;
+    --color-borda:#9694BE
+    /* Cores de fundo modo claro "cl" */
+    --color-cl-fundo:#DDDEE3;
+    --color-cl-medio:#F1F4F5;
+    --color-cl-razo:#FFFFFF;
+
+
+
+
 }
