@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+div{
+    /* font-family: */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
