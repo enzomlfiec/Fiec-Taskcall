@@ -6,14 +6,14 @@
     --color-accent: #D9172A;
 
     /* Cores de fundo */
-    --color-bg-fundo:#1F1D33;
-    --color-bg-medio:#26253E;
-    --color-bg-razo:#3A385C;
+    --color-fundo:#1F1D33;
+    --color-medio:#26253E;
+    --color-razo:#3A385C;
 
     /* Cores de fonte, primaria e secundária */
     
-    --color-font-pri:#FFFFFF;  
-    --color-font-sec:#B2B1C4;
+    --color-pri:#FFFFFF;  
+    --color-sec:#B2B1C4;
 
     /* Cores secundárias */
 
@@ -21,11 +21,11 @@
     --color-sec-amarelo:#FF961D;
     --color-sec-vermelho:#D9172A;
     --color-sec-azul:#1772D9;
-
+    --color-borda:#9694BE
     /* Cores de fundo modo claro "cl" */
-    --color-bg-cl-fundo:#DDDEE3;
-    --color-bg-cl-medio:#F1F4F5;
-    --color-bg-cl-razo:#FFFFFF;
+    --color-cl-fundo:#DDDEE3;
+    --color-cl-medio:#F1F4F5;
+    --color-cl-razo:#FFFFFF;
 
 
 
