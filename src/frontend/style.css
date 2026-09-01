@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+@theme {
+    --color-accent: #D9172A;
+    --color-bg-fundo:#1F1D33;
+    --color-bg-medio:#26253E;
+    --color-bg-razo:#3A385C;
+
+    --color-font-claro:#FFFFFF;
+    --color-font-escuro:#1F1D33;
+
+    --color-sec-verde:#0CC955;
+    --color-sec-amarelo:#FF961D;
+    --color-sec-vermelho:#D9172A;
+    --color-sec-azul:#1772D9;
+
+
+    /* cores de modo claro-cl */
+    --color-bg-cl-fundo:#DDDEE3;
+    --color-bg-cl-medio:#F1F4F5;
+    --color-bg-cl-razo:#FFFFFF;
+
+    
+
+
+}
