@@ -19,7 +19,7 @@ function Painel() {
                 <input className="text-black bg-white w-lg rounded-md p-2" type="text" placeholder="*Insira a senha vinculada ao perfil." />
                 <br></br>
                 <div className="flex items-center justify-center">
-                    <button className="bg-accent w-50 h-10 rounded-md shadow-[0px_8px_0px_0px_#740510]"> Entrar </button>
+                    <button className="bg-accent w-50 h-10 rounded-md shadow-[0px_8px_0px_0px_#740510] cursor-pointer hover:scale-105 transition-transform"> Entrar </button>
                 </div>
             </div>
         </div>
