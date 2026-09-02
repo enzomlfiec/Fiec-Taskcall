@@ -1,14 +1,16 @@
-import Alerta from "./components/alerta"
-import FakeLayers from "./components/fakelayers"
+// import Alerta from "./components/alerta"
+// import FakeLayers from "./components/fakelayers"
+import Painel from "./components/Painel"
+import '../style.css'
 
-function App () {
+function App() {
   return (
-    <div className="h-screen w-screen bg-[url(public/assets/bg.png)]">
-        {/* <Alerta/> */}
-        <FakeLayers/>
-    </div>
-    
+    <>
+      {/* <Alerta/> */}
+      {/* <FakeLayers/> */}
+      <Painel />
+    </>
   )
-  
+
 }
 export default App
