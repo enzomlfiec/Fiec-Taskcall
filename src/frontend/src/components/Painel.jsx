@@ -1,6 +1,6 @@
 function Painel() {
   return (
-    <div className="flex flex-col h-screen w-screen items-center justify-center bg-[url(public/assets/login2.png)]">
+    <div className="flex flex-col h-screen w-screen items-center justify-center bg-[url(public/assets/login2.png)] bg-cover bg-center">
       <img
         id="logo"
         src="public/assets/logo/logo-hor.png"
