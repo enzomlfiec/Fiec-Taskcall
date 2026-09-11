@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom"
+
 function Painel() {
+
+    const navigate = useNavigate()
 
     return (
         <div className="flex flex-col h-screen w-screen items-center justify-center bg-[url(public/assets/login2.png)]">

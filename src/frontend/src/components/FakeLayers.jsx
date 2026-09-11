@@ -1,14 +1,20 @@
 import Alerta from "./alerta"
+import { useNavigate } from "react-router-dom"
+
+
 function FakeLayers() {
+    const navigate = useNavigate()
     return (
         <div className="h-screen w-screen bg-[url(public/assets/bg.png)]">
             <div className="flex items-center justify-center relative top-98.75 -left-54.25">
                 <img className="ml-3 transition-transform duration-100 ease-in-out hover:scale-[1.01] hover:drop-shadow-[0px_2px_3px_rgba(0,0,0,0.185)] hover:cursor-pointer" src="/assets/button0.png" alt="Button 0" />
                 <img className="ml-3 transition-transform duration-100 ease-in-out hover:scale-[1.01] hover:drop-shadow-[0px_2px_3px_rgba(0,0,0,0.185)] hover:cursor-pointer" src="/assets/button1.png" alt="Button 1" />
                 <img className="ml-3 transition-transform duration-100 ease-in-out hover:scale-[1.01] hover:drop-shadow-[0px_2px_3px_rgba(0,0,0,0.185)] hover:cursor-pointer" src="/assets/button2.png" alt="Button 2" />
-                <button onClick={Alerta}>
+                
+                <button onClick={() => navigate("/painel")}>
                     <img className="ml-3 transition-transform duration-100 ease-in-out hover:scale-[1.01] hover:drop-shadow-[0px_2px_3px_rgba(0,0,0,0.185)] hover:cursor-pointer" src="/assets/button3.png" alt="Button 3" />
                 </button>
+           
             </div>
         </div>
     )
