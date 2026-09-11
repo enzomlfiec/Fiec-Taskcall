@@ -6,28 +6,56 @@
     --color-accent: #D9172A;
 
     /* Cores de fundo */
-    --color-fundo-fundo:#1F1D33;
-    --color-fundo-medio:#26253E;
-    --color-fundo-razo:#3A385C;
+    --color-fundo-fundo: #1F1D33;
+    --color-fundo-medio: #26253E;
+    --color-fundo-razo: #3A385C;
 
     /* Cores de fonte, primaria e secundária */
-    
-    --color-pri:#FFFFFF;  
-    --color-sec:#B2B1C4;
+
+    --color-pri: #FFFFFF;
+    --color-sec: #B2B1C4;
 
     /* Cores secundárias */
 
-    --color-sec-verde:#0CC955;
-    --color-sec-amarelo:#FF961D;
-    --color-sec-vermelho:#D9172A;
-    --color-sec-azul:#1772D9;
-    --color-borda:#9694BE
-    /* Cores de fundo modo claro "cl" */
-    --color-cl-fundo:#DDDEE3;
-    --color-cl-medio:#F1F4F5;
-    --color-cl-razo:#FFFFFF;
+    --color-sec-verde: #0CC955;
+    --color-sec-amarelo: #FF961D;
+    --color-sec-vermelho: #D9172A;
+    --color-sec-azul: #1772D9;
+    --color-borda: #9694BE
+        /* Cores de fundo modo claro "cl" */
+        --color-cl-fundo:#DDDEE3;
+    --color-cl-medio: #F1F4F5;
+    --color-cl-razo: #FFFFFF;
 
 
 
 
 }
+
+.botao {
+    width: 12.5rem;
+    /* 50 * 0.25rem (ou 200px) */
+    height: 2.5rem;
+    /* 10 * 0.25rem (ou 40px) */
+    border-radius: 0.375rem;
+    /* rounded-md (6px) */
+    box-shadow: 0px 8px 0px 0px #740510;
+    transition-property: transform;
+    transition-duration: 150ms;
+}
+
+.botao:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.desabilitado {
+    opacity: 25%;
+}
+
+.desabilitado:hover {
+    transform: scale(1.0);
+    cursor: not-allowed; 
+}
+
+
