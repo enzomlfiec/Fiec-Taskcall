@@ -4,10 +4,11 @@ import vector from "../assets/vector.png";
 import vector2 from "../assets/vector2.png";
 import configuracao from "../assets/configuracao.png";
 import perfil from "../assets/perfil.png";
+import { Link } from "react-router-dom";
 
 function SideBar() {
   return (
-    <div className="absolute z-index h-screen w-screen  bg-[url(public/assets/login2.png)] bg-cover bg-center">
+    <div className="h-screen z-10">
       <div className="w-30 h-screen bg-fundo-razo rounded-r-3xl flex flex-col items-center justify-between pb-5 ">
         {/* parte superior */}
 
@@ -25,7 +26,8 @@ function SideBar() {
               alt="Icone casa - ínicio"
             />
           </a>
-          <div className="w-22 h-0.5 bg-cl-razo opacity-30 rounded"></div>
+
+          <button className="w-22 h-0.5 bg-cl-razo opacity-30 rounded"></button>
           <a href="">
             <img
               className="w-12 opacity-30 hover:opacity-100 transition-opacity"
@@ -33,6 +35,7 @@ function SideBar() {
               alt="Icone"
             />
           </a>
+
           <div className="w-22 h-0.5 bg-cl-razo opacity-30 rounded"></div>
           <a href="">
             <img
@@ -41,12 +44,13 @@ function SideBar() {
               alt="Icone "
             />
           </a>
+
           <div className="w-22 h-0.5 bg-cl-razo opacity-30 rounded"></div>
         </div>
 
         {/* parte inferior */}
 
-        <div className="flex flex-col items-center gap-10">
+        <div className="flex flex-col items-center gap-5">
           <div className="w-22 h-1 bg-cl-razo opacity-30 rounded"></div>
           <a href="">
             <img
@@ -55,6 +59,7 @@ function SideBar() {
               alt="Icone Configuração - ajustes"
             />
           </a>
+
           <div className="w-22 h-0.5 bg-cl-razo opacity-30 rounded"></div>
           <a href="">
             <img
@@ -63,6 +68,7 @@ function SideBar() {
               alt="Icone Configuração - ajustes"
             />
           </a>
+
         </div>
       </div>
     </div>
