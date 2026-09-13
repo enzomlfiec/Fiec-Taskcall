@@ -1,14 +1,20 @@
- import SideBar from "./SideBar";
+import SideBar from "./SideBar";
 import Filtros from "./Filtros"; 
+import LayoutUsuario from "./LayoutUsuario";
+
+{/* Icons */}
+import vector from "../assets/vector.png";
+import { Send } from 'lucide-react';
+import { Trash } from 'lucide-react';
 
 const Inbox = () => {
     return (
-        <div className="flex z-10 min-h-screen w-screen bg-[url(public/assets/login2.png)] bg-cover bg-center items-stretch overflow-hidden">
+        <div className="flex z-10 min-h-screen w-screen bg-fundo-fundo bg-cover bg-center items-stretch overflow-hidden">
            
            <SideBar />
 
 
-           <main className="min-h-screen w-90 max-w-sm bg-fundo-fundo border-3 border-borda rounded-r-3xl flex flex-col items-center pt-8 pb-8 gap-4 overflow-y-auto">
+           <aside className="min-h-screen w-90 max-w-sm bg-fundo-fundo border-3 border-borda rounded-r-3xl flex flex-col items-center pt-8 pb-8 gap-4 overflow-y-auto">
 
                 <div className="flex w-full px-4 justify-center flex-col items-center">
                     <button className="w-full h-15 bg-accent rounded-2xl shadow-[0px_6px_0px_0px_#740510] transition-transform duration-150 cursor-pointer hover:scale-102 active:scale-98 text-pri text-2xl font-bold">
@@ -19,15 +25,15 @@ const Inbox = () => {
                 <Filtros />
 
                 
-                <div className="flex w-full px-4 justify-center flex-col items-center">
-                <button className="w-full h-10 bg-sec-verde rounded-2xl shadow-[0px_6px_0px_0px_#09943E] transition-transform duration-150 cursor-pointer hover:scale-102 active:scale-98 text-pri text-2xl font-bold">
-                        Enviados
+                <div className="flex w-full px-4 justify-center flex-row items-center">
+                <button className="flex flex-row w-full h-10 bg-sec-verde rounded-2xl shadow-[0px_6px_0px_0px_#09943E] transition-transform duration-150 cursor-pointer hover:scale-102 active:scale-98 text-pri text-2xl font-bold items-center justify-center">
+                    <Send/> Enviados
                 </button>
                 </div>
 
         <div className="flex w-full px-4 justify-center flex-col items-center">
-                <button className="w-full h-10 bg-accent rounded-2xl shadow-[0px_6px_0px_0px_#740510] transition-transform duration-150 cursor-pointer hover:scale-102 active:scale-98 text-pri text-2xl font-bold">
-                        Lixeira
+                <button className=" flex flex-row w-full h-10 bg-accent rounded-2xl shadow-[0px_6px_0px_0px_#740510] transition-transform duration-150 cursor-pointer hover:scale-102 active:scale-98 text-pri text-2xl font-bold justify-center items-center">
+                    <Trash/> Lixeira
                 </button>
             </div>
 
@@ -47,12 +53,32 @@ const Inbox = () => {
 
            <div className="w-80  border-b border-borda/30">
             </div>
-
         </div>
 
-    </main>
+    </aside>
 
-        </div>
+    <div className="flex flex-row">
+        <LayoutUsuario/>
+
+      <div className="flex flex-row justify-center items-center h-20 gap-2 px-2">
+
+         <div className="flex-1 h-2 w-70 bg-borda rounded-2xl"></div>
+
+            <a href="">
+             <img
+            className="w-12 opacity-30 hover:opacity-100 transition-opacity "
+            src={vector}
+            alt="Icone"/>
+            </a>
+        
+        <span className=" font-semibold tracking-wide text-pri text-4xl">
+            Inbox
+        </span>
+        
+        <div className="flex-1 h-2 w-60 bg-borda rounded-2xl"></div>
+    </div>
+    </div>
+    </div>
     );
 };
 
