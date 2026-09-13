@@ -9,65 +9,75 @@ import { Link } from "react-router-dom";
 function SideBar() {
   return (
     <div className="h-screen z-10">
-      <div className="w-30 h-screen bg-fundo-razo rounded-r-3xl flex flex-col items-center justify-between pb-5 ">
+      <div className="w-30 h-screen bg-fundo-razo rounded-r-3xl flex flex-col items-center justify-between pb-5">
+
         {/* parte superior */}
 
-        <div className="flex flex-col items-center gap-10 ">
+        <div className="flex flex-col items-center gap-10">
+
           <img
             className="w-22 opacity-30 mt-5"
             src={taskcall}
             alt="Logo Taskcall"
           />
+
           <div className="w-24 h-0.5 bg-cl-razo opacity-30 rounded"></div>
-          <a href="">
+
+          <Link to="/tela-principal">
             <img
               className="w-12 opacity-30 hover:opacity-100 transition-opacity"
               src={home}
-              alt="Icone casa - ínicio"
+              alt="Ícone casa - início"
             />
-          </a>
+          </Link>
 
           <button className="w-22 h-0.5 bg-cl-razo opacity-30 rounded"></button>
-          <a href="">
+
+          <Link to="/inbox">
             <img
               className="w-12 opacity-30 hover:opacity-100 transition-opacity"
               src={vector}
-              alt="Icone"
+              alt="Ícone Inbox"
             />
-          </a>
+          </Link>
 
           <div className="w-22 h-0.5 bg-cl-razo opacity-30 rounded"></div>
-          <a href="">
+
+          <Link to="/chamados">
             <img
               className="w-16 opacity-30 hover:opacity-100 transition-opacity"
               src={vector2}
-              alt="Icone "
+              alt="Ícone Chamados"
             />
-          </a>
+          </Link>
 
           <div className="w-22 h-0.5 bg-cl-razo opacity-30 rounded"></div>
+
         </div>
 
         {/* parte inferior */}
 
         <div className="flex flex-col items-center gap-5">
+
           <div className="w-22 h-1 bg-cl-razo opacity-30 rounded"></div>
-          <a href="">
+
+          <Link to="/configuracoes">
             <img
               className="w-14 opacity-30 hover:opacity-100 transition-opacity"
               src={configuracao}
-              alt="Icone Configuração - ajustes"
+              alt="Ícone Configurações"
             />
-          </a>
+          </Link>
 
           <div className="w-22 h-0.5 bg-cl-razo opacity-30 rounded"></div>
-          <a href="">
+
+          <Link to="/usuario">
             <img
               className="w-14 opacity-30 hover:opacity-100 transition-opacity"
               src={perfil}
-              alt="Icone Configuração - ajustes"
+              alt="Ícone Usuário"
             />
-          </a>
+          </Link>
 
         </div>
       </div>
