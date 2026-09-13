@@ -3,7 +3,7 @@ import perfil from "../assets/perfil.png";
 
 const LayoutUsuario = () => {
     return (
-        <div className="flex justify-start w-90 h-30 m-1 p-1 bg-fundo-fundo items-start">
+        <div className="flex justify-start w-90 m-1 p-1  items-start">
 
 
             <div className="flex items-center gap-2">

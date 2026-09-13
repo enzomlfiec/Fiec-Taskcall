@@ -4,6 +4,7 @@ import "../style.css";
 import FakeLayers from "./components/FakeLayers";
 import { Routes, Route } from "react-router-dom";
 import Inbox from "./components/Inbox";
+import TelaPrincipal from "./components/TelaPrimcipal";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       }
       */}
 
-      <Inbox/>
+      <TelaPrincipal/>
 
     </>
   );
