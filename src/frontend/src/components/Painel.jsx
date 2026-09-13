@@ -7,7 +7,7 @@ function Painel() {
     return (
         <div className="flex flex-col h-screen w-screen items-center justify-center bg-[url(public/assets/login2.png)]">
             <img id="logo" src="public/assets/logo/logo-hor.png" className="w-125"></img>
-            <div className="flex flex-col text-white bg-fundo-medio p-20 pr-30 pl-30 gap-3 rounded-4xl border-sec border-2">
+            <div className=" absolute flex flex-col text-white bg-fundo-medio p-20 pr-30 pl-30 gap-3 rounded-4xl border-sec border-2">
                 <div className="flex items-center justify-center">
                     <h1 className="text-3xl font-bold">Entrar</h1>
                 </div>
