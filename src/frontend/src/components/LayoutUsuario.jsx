@@ -1,7 +1,12 @@
 import { Cpu } from "lucide-react";
 import perfil from "../assets/perfil.png";
+import React from "react";
+import Cage from "../assets/cage.png";
+
+
 
 const LayoutUsuario = () => {
+    const [foto, setFoto] = React.useState(Cage)
     return (
         <div className="flex justify-start w-90 m-1 p-1  items-start">
 
@@ -11,7 +16,7 @@ const LayoutUsuario = () => {
                 <a href="">
                     <img
                         className="w-16 h-16 rounded-full opacity-80 hover:opacity-100 transition-opacity"
-                        src={perfil}
+                        src={foto}
                         alt="Ícone do usuário"/>
                 </a>
 

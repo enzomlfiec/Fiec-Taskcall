@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<FakeLayers/>}/> 
         <Route path="/painel" element={<Painel/>}/>
 
-        <Route path="/tela-principal" element={<TelaPrincipal />} />
+        <Route path="/tela-principal" element={<TelaPrincipal />} />  
 
         <Route path="/inbox" element={<Inbox />} />
 
