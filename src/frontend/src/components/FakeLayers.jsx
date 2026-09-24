@@ -1,4 +1,4 @@
-import Alerta from "./alerta"
+
 import { useNavigate } from "react-router-dom"
 
 

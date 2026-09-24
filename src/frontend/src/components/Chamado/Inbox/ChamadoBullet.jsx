@@ -2,6 +2,7 @@ import { Bookmark } from 'lucide-react'
 import React, { useEffect } from 'react'
 
 const ChamadoBullet = ({ index, mockInfo }) => {
+    const [mostrarChamado, setMostrarChamado] = React.useState(false)
 
     const [StatusInfo, setStatusInfo] = React.useState({
         StatusID: 2,
@@ -41,12 +42,14 @@ const ChamadoBullet = ({ index, mockInfo }) => {
             })
         }
 
-    },[mockInfo.status])
+    }, [mockInfo.status])
 
 
     return (
         <>
-            <div id="ChamadoBullet" className="hover:brightness-150 brightness-100 shrink-0 drop-shadow-sm drop-shadow-black font-semibold bg-fundo-razo h-[2vw] w-full rounded-2xl pl-5 pr-5 flex flex-row items-center text-center justify-baseline cursor-pointer transition-all duration-200">
+            <div id="ChamadoBullet" className="hover:brightness-150 brightness-100 shrink-0 drop-shadow-sm drop-shadow-black font-semibold bg-fundo-razo h-[2vw] w-full rounded-2xl pl-5 pr-5 flex flex-row items-center text-center justify-baseline cursor-pointer transition-all duration-200"
+                onClick={() => setMostrarChamado(!mostrarChamado)}
+            >
                 <div className='flex flex-row w-full'>
                     <div className='flex flex-row gap-5'>
                         <span role="checkbox" className='checkboxFalse'></span>
@@ -73,6 +76,13 @@ const ChamadoBullet = ({ index, mockInfo }) => {
                 </div>
                 <div id="ChamadoStatus" className={`w-6 h-6 bg-${StatusInfo.cor} rounded-full drop-shadow-sm drop-shadow-black/25 shadow-[inset_0_5px_0_0px_#00000050]`}>
                 </div>
+            </div>
+            <div className={`bg-fundo-profundo/50 backdrop-blur-lg inset-0 h-screen w-screen opacity-0 absolute flex z-50 ${mostrarChamado ? " opacity-100" : "invisible"} justify-center items-center align-middle transition-all duration-500`}
+                onClick={() => setMostrarChamado(!mostrarChamado)}>
+                <div className="p-50 rounded-4xl bg-fundo-razo">
+                    <p className="text-white">Você clickou no chamado: {mockInfo.id}</p>
+                </div>
+
             </div>
         </>
 

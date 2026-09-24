@@ -2,6 +2,7 @@ import SideBar from "../../SideBar";
 import Filtros from "../../Filtros";
 import LayoutUsuario from "../../LayoutUsuario";
 import mockChamados from '../../../assets/scripts/mock/mockChamados'
+import React from "react";
 
 {/* Icons */ }
 import vector from "../../../assets/img/vector.png";
@@ -10,6 +11,9 @@ import { Trash } from 'lucide-react';
 import ChamadoBullet from "./ChamadoBullet";
 
 const Inbox = ({ collapsed, setCollapsed }) => {
+
+    
+
     return (
         <div className="flex z-10 min-h-screen w-screen bg-fundo-fundo bg-cover bg-center items-stretch overflow-hidden">
             <div>oi</div>
@@ -31,7 +35,7 @@ const Inbox = ({ collapsed, setCollapsed }) => {
 
 
                     <div className="flex w-full px-4 justify-center flex-row items-center">
-                        <button className="flex flex-row w-full h-10 bg-sec-verde rounded-lg shadow-[0px_6px_0px_0px_#09943E] transition-transform duration-150 cursor-pointer hover:scale-102 active:scale-98 text-pri text-2xl font-bold items-center justify-center">
+                        <button className="flex flex-row w-full h-10 bg-sec-verde rounded-lg shadow-[0px_6px_0px_0px_#09943E] transition-transform duration-1500 cursor-pointer hover:scale-102 active:scale-98 text-pri text-2xl font-bold items-center justify-center">
                             <Send /> Enviados
                         </button>
                     </div>
@@ -75,19 +79,20 @@ const Inbox = ({ collapsed, setCollapsed }) => {
                     </header>
                 </div>
                 <div id="div-chamados" className="scroll shrink-0 flex flex-col gap-2 flex-1 min-h-0 overflow-y-auto"
+
                 >
                     {
-                        Array.from({ length: mockChamados.length }).map((_,index) => (
+                        Array.from({ length: mockChamados.length }).map((_, index) => (
                             <ChamadoBullet
-                            key={index}
-                            index={index}
-                            mockInfo={mockChamados[index]}
+                                key={index}
+                                index={index}
+                                mockInfo={mockChamados[index]}
+                                
                             />
                         ))
                     }
                 </div>
             </div>
-
         </div>
     );
 };

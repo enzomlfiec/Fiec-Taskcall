@@ -80,16 +80,6 @@ const TelaPrincipal = ({ collapsed, setCollapsed }) => {
                                 }}
                             />
 
-                            {/* Chamados não visualizados */}
-                            {/* <ChamadosResumos
-                                statusChamados={{
-                                    texto: "natan é",
-                                    cor: "debug",
-                                    icone: Heart,
-                                    porcentagem: "lindo",
-                                }}
-                            /> */}
-
                         </article>
 
                         <div className="flex flex-row text-pri text-lg justify-center items-center px-1 gap-2 mb-6.5">
