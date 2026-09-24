@@ -9,10 +9,11 @@ import vector from "../../../assets/img/vector.png";
 import { Send } from 'lucide-react';
 import { Trash } from 'lucide-react';
 import ChamadoBullet from "./ChamadoBullet";
+import { Link } from "react-router-dom";
 
 const Inbox = ({ collapsed, setCollapsed }) => {
 
-    
+
 
     return (
         <div className="flex z-10 min-h-screen w-screen bg-fundo-fundo bg-cover bg-center items-stretch overflow-hidden">
@@ -25,11 +26,13 @@ const Inbox = ({ collapsed, setCollapsed }) => {
             <div className={`${!collapsed ? "ml-20" : "ml-0"}  transition-all duration-300`}>
                 <aside className="ml-5 min-h-screen w- max-w-sm bg-fundo-fundo border border-borda rounded-r-3xl flex flex-col items-center pt-8 pb-8 gap-4 overflow-y-auto">
 
-                    <div className="flex w-full px-4 justify-center flex-col items-center">
-                        <button className="w-full h-15 bg-accent rounded-lg shadow-[0px_6px_0px_0px_#740510] transition-transform duration-150 cursor-pointer hover:scale-102 active:scale-98 text-pri text-2xl font-bold">
-                            Escrever
-                        </button>
-                    </div>
+                    <Link to="/inbox/criacaochamado">
+                        <div className={`flex w-60 px-4 cursor-pointer justify-center flex-col items-center className="w-full h-15 bg-accent rounded-lg shadow-[0px_6px_0px_0px_#740510] transition-transform duration-150 hover:scale-102 active:scale-98 text-pri text-2xl font-bold`}>
+                            <button className="cursor-pointer">
+                                Escrever
+                            </button>
+                        </div>
+                    </Link>
 
                     <Filtros />
 
@@ -65,7 +68,7 @@ const Inbox = ({ collapsed, setCollapsed }) => {
                     </div>
 
                 </aside>
-            </div>
+            </div >
             <div className="flex flex-col h-screen flex-1 pr-10 pl-10 overflow-hidden">
                 <div className="flex flex-col w-[70%] items-center mb-10">
                     <header className="flex flex-row">
@@ -87,13 +90,13 @@ const Inbox = ({ collapsed, setCollapsed }) => {
                                 key={index}
                                 index={index}
                                 mockInfo={mockChamados[index]}
-                                
+
                             />
                         ))
                     }
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

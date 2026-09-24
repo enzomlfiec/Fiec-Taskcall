@@ -5,7 +5,7 @@ const mockChamados = [
         nome: "Natan",
         sala: "Sala 67",
         descricao: "insira aqui uma descrição",
-        categoria: "Muito gay",
+        categoria: "Muito Lindo",
         salas: "Sala ",
         dispositivo: "Máquina 25",
         data: "5, Maio 2026 - 14:28",

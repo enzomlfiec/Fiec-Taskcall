@@ -1,4 +1,6 @@
+import { ArrowLeft } from "lucide-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 function CriacaoChamado() {
     const [titulo, setTitulo] = React.useState("")
@@ -6,6 +8,9 @@ function CriacaoChamado() {
     const [descrição, setDescrição] = React.useState("")
     // const [first, setfirst] = React.useState("")
 
+    function handleSubmit(event) {
+        event.preventDefault()
+    }
 
     return (
         <main className="flex min-h-screen w-screen items-center justify-center bg-[url(public/assets/login2.png)] bg-cover px-4 py-8 text-white">
@@ -13,6 +18,14 @@ function CriacaoChamado() {
                 aria-labelledby="titulo-criacao-chamado"
                 className="flex w-full max-w-3xl flex-col justify-center gap-5 rounded-4xl border-2 border-sec backdrop-blur-2xl p-6 md:p-10"
             >
+                <div>
+                    <Link to="/inbox">
+                        <ArrowLeft
+                            className="cursor-pointer w-6 h-6 text-borda hover:text-white transition-all duration-200 "
+
+                        />
+                    </Link>
+                </div>
                 <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <h1 id="titulo-criacao-chamado" className="text-3xl font-bold text-white">
                         Criar Chamado
@@ -43,6 +56,7 @@ function CriacaoChamado() {
                             <span aria-hidden="true" className="ml-1 text-accent font-bold">*</span>
                         </label>
                         <input
+                            // onChange={}
                             id="titulo-chamado"
                             name="titulo"
                             type="text"
@@ -101,7 +115,7 @@ function CriacaoChamado() {
                         >
                             Enviar chamado
                         </button>
-                    </div>  
+                    </div>
                 </form>
             </section>
         </main>
