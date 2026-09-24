@@ -3,7 +3,7 @@ import SideBar from "./SideBar";
 import LayoutUsuario from "./LayoutUsuario";
 import ChamadosResumos from "./ChamadosResumos";
 import ChamadoBullet from "./Chamado/Inbox/ChamadoBullet";
-import mockChamados from "./Chamado/Inbox/mockChamados";
+import mockChamados from "../assets/scripts/mock/mockChamados";
 import { Link } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom"

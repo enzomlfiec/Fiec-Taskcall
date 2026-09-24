@@ -1,4 +1,4 @@
-import Painel from "./components/Painel";
+import Login from "./components/Login";
 import "../style.css";
 import FakeLayers from "./components/FakeLayers";
 import Inbox from "./components/Chamado/Inbox/Inbox";
@@ -19,7 +19,7 @@ function App() {
         <Routes>
 
           <Route path="/" element={<FakeLayers />} />
-          <Route path="/painel" element={<Painel />} />
+          <Route path="/login" element={<Login />} />
 
           <Route path="/tela-principal" element={<TelaPrincipal
             collapsed={collapsed}

@@ -1,7 +1,7 @@
 import SideBar from "../../SideBar";
 import Filtros from "../../Filtros";
 import LayoutUsuario from "../../LayoutUsuario";
-import mockChamados from './mockChamados'
+import mockChamados from '../../../assets/scripts/mock/mockChamados'
 
 {/* Icons */ }
 import vector from "../../../assets/vector.png";

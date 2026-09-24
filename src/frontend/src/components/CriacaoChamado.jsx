@@ -1,6 +1,6 @@
 function CriacaoChamado() {
     return <>
-        <div className="flex flex-col h-screen w-screen items-center justify-center bg-[url(public/assets/login2.png)]">
+        <div className="flex flex-col h-screen w-screen items-center justify-center bg-[url(public/assets/login2.png)] bg-cover ">
             {/* <img id="logo" src="public/assets/logo/logo-hor.png" className="w-125"></img> */}
             <div className="flex flex-col text-white bg-fundo-medio p-20 pt-5 gap-3 rounded-4xl border-sec border-2">
                 <div className="flex items-center justify-between">
