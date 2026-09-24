@@ -1,11 +1,12 @@
-import taskcall from "../assets/taskcall.png";
-import home from "../assets/home.png";
-import vector from "../assets/vector.png";
-import vector2 from "../assets/vector2.png";
-import configuracao from "../assets/configuracao.png";
-import perfil from "../assets/perfil.png";
+import taskcall from "../assets/img/taskcall.png";
+import home from "../assets/img/home.png";
+import vector from "../assets/img/vector.png";
+import vector2 from "../assets/img/vector2.png";
+import configuracao from "../assets/img/configuracao.png";
+import perfil from "../assets/img/perfil.png";
 import { Link } from "react-router-dom";
 import React from "react";
+import { ArrowBigRight, ArrowUp, ChevronLeft } from "lucide-react";
 
 function SideBar({ collapsed, setCollapsed }) {
 
@@ -89,8 +90,8 @@ function SideBar({ collapsed, setCollapsed }) {
       </div>
       <div id="sidebarpull" className={`bg-fundo-razo text-5xl text-borda font-bold select-none pt-5 pb-5 rounded-br-4xl rounded-tr-4xl text-center align-middle leading-loose cursor-pointer hover:bg-borda transition-all duration-300 hover:text-white`}
         onClick={() => { setCollapsed(!collapsed) }}
-      ><p className={`${!collapsed ? "rotate-180" : "rotate-0"} text-[32px] transition-all duration-500`}>
-          {">"}
+      ><p className={`${collapsed ? "rotate-180" : "rotate-0"} text-[32px] transition-all duration-500`}>
+          <ChevronLeft/>
 
         </p></div>
     </div>

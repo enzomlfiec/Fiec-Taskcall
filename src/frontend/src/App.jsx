@@ -8,6 +8,7 @@ import React from "react";
 
 {/* Rotas */ }
 import { Routes, Route } from "react-router-dom";
+import CriacaoChamado from "./components/Chamado/Inbox/CriacaoChamado";
 
 function App() {
 
@@ -27,6 +28,11 @@ function App() {
           />} />
 
           <Route path="/inbox" element={<Inbox
+            collapsed={collapsed}
+            setCollapsed={setCollapsed}
+          />} />
+
+          <Route path="/inbox/criacaochamado" element={<CriacaoChamado
             collapsed={collapsed}
             setCollapsed={setCollapsed}
           />} />

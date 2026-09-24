@@ -1,7 +1,7 @@
 import { Cpu } from "lucide-react";
-import perfil from "../assets/perfil.png";
+import perfil from "../assets/img/perfil.png";
 import React from "react";
-// import Cage from "../assets/cage.png";
+// import Cage from "../assets/img/cage.png";
 
 
 

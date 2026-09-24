@@ -18,23 +18,23 @@ const Filtros = () => {
 
   return (
     <div className="w-full flex flex-col px-4 text-pri">
-      
+
       {/*Abrir e fechar o Filtro*/}
       <button
         onClick={() => setAberto(!aberto)}
         className="w-full flex items-center justify-between py-2 mb-4 border-b border-borda/30 cursor-pointer hover:opacity-80 transition-opacity">
 
         <div className="flex-1 h-0.5 bg-borda/30 rounded-2xl"></div>
-        
+
         <span className="px-4 font-semibold text-xl tracking-wide">
-            Filtros
+          Filtros
         </span>
-        
+
         <div className="flex-1 h-0.5 bg-borda/30 rounded-2xl"></div>
 
         {/* setinha de abri e fechar */}
         <svg
-          className={`w-6 h-6 ml-2 text-pri transition-transform duration-300 ${aberto ? "" : "rotate-180"}`} 
+          className={`w-6 h-6 ml-2 text-pri transition-transform duration-300 ${aberto ? "" : "rotate-180"}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -44,9 +44,8 @@ const Filtros = () => {
       </button>
 
       <div
-        className={`transition-all duration-300 overflow-hidden flex flex-col gap-3 ${
-          aberto ? "max-h-600px opacity-100" : "max-h-0 opacity-0 pointer-events-none"
-        }`}
+        className={`transition-all duration-300 overflow-hidden flex flex-col gap-3 ${aberto ? "max-h-600px opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+          }`}
       >
         {tiposChamados.map((item) => (
           <label
@@ -54,10 +53,10 @@ const Filtros = () => {
             className={`flex w-full h-10 ${item.bg} rounded-xl items-center px-4 justify-start gap-4 text-lg font-medium cursor-pointer transition-transform hover:translate-x-1 select-none`}>
 
             {/*Div clicável*/}
-            <input 
-              type="checkbox" 
-              name={item.id} 
-              className="w-5 h-5 rounded border-borda/60 text-accent focus:ring-0 cursor-pointer stroke-sec-verde"/>
+            <input
+              type="checkbox"
+              name={item.id}
+              className="w-5 h-5 rounded border-borda/60 text-accent focus:ring-0 cursor-pointer stroke-sec-verde" />
             {item.label}
           </label>
         ))}
