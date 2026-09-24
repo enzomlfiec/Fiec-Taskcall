@@ -1,12 +1,12 @@
 import { Cpu } from "lucide-react";
 import perfil from "../assets/perfil.png";
 import React from "react";
-import Cage from "../assets/cage.png";
+// import Cage from "../assets/cage.png";
 
 
 
 const LayoutUsuario = () => {
-    const [foto, setFoto] = React.useState(Cage)
+    const [foto, setFoto] = React.useState(perfil)
     return (
         <div className="flex justify-start w-90 m-1 p-1  items-start">
 

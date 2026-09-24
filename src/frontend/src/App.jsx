@@ -1,26 +1,39 @@
 import Painel from "./components/Painel";
 import "../style.css";
 import FakeLayers from "./components/FakeLayers";
-import Inbox from "./components/Inbox";
+import Inbox from "./components/Chamado/Inbox/Inbox";
 import TelaPrincipal from "./components/TelaPrincipal";
+import PageNotFound from "./components/PageNotFound";
+import React from "react";
 
-{/* Rotas */}
+{/* Rotas */ }
 import { Routes, Route } from "react-router-dom";
 
 function App() {
+
+  const [collapsed, setCollapsed] = React.useState(false)
+
   return (
     <>
       {
-      <Routes>
+        <Routes>
 
-        <Route path="/" element={<FakeLayers/>}/> 
-        <Route path="/painel" element={<Painel/>}/>
+          <Route path="/" element={<FakeLayers />} />
+          <Route path="/painel" element={<Painel />} />
 
-        <Route path="/tela-principal" element={<TelaPrincipal />} />  
+          <Route path="/tela-principal" element={<TelaPrincipal
+            collapsed={collapsed}
+            setCollapsed={setCollapsed}
+          />} />
 
-        <Route path="/inbox" element={<Inbox />} />
+          <Route path="/inbox" element={<Inbox
+            collapsed={collapsed}
+            setCollapsed={setCollapsed}
+          />} />
 
-        {/* Futuras rotas de chamado, usuário e configurações
+          <Route path="*" element={<PageNotFound />} />
+
+          {/* Futuras rotas de chamado, usuário e configurações
 
          <Route  path="/chamados" element={<h1 className="text-white">Chamados</h1>}/>
 
@@ -28,7 +41,7 @@ function App() {
 
           <Route path="/usuario "element={<h1 className="text-white">Usuário</h1>} />
        */}
-      </Routes>
+        </Routes>
       }
 
     </>
