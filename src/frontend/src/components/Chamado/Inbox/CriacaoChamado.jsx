@@ -1,4 +1,6 @@
+import { ArrowLeft } from "lucide-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 function CriacaoChamado() {
     const [titulo, setTitulo] = React.useState("")
@@ -13,6 +15,11 @@ function CriacaoChamado() {
                 aria-labelledby="titulo-criacao-chamado"
                 className="flex w-full max-w-3xl flex-col justify-center gap-5 rounded-4xl border-2 border-sec backdrop-blur-2xl p-6 md:p-10"
             >
+                <Link to="/inbox">
+                    <div className="text-borda hover:text-white transition-all duration-300 cursor-pointer">
+                        <ArrowLeft />
+                    </div>
+                </Link>
                 <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <h1 id="titulo-criacao-chamado" className="text-3xl font-bold text-white">
                         Criar Chamado
@@ -101,7 +108,7 @@ function CriacaoChamado() {
                         >
                             Enviar chamado
                         </button>
-                    </div>  
+                    </div>
                 </form>
             </section>
         </main>

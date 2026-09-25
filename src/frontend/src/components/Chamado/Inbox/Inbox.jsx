@@ -9,14 +9,14 @@ import vector from "../../../assets/img/vector.png";
 import { Send } from 'lucide-react';
 import { Trash } from 'lucide-react';
 import ChamadoBullet from "./ChamadoBullet";
+import { Link } from "react-router-dom";
 
 const Inbox = ({ collapsed, setCollapsed }) => {
 
-    
+
 
     return (
         <div className="flex z-10 min-h-screen w-screen bg-fundo-fundo bg-cover bg-center items-stretch overflow-hidden">
-            <div>oi</div>
 
             <SideBar
                 collapsed={collapsed}
@@ -24,12 +24,13 @@ const Inbox = ({ collapsed, setCollapsed }) => {
             />
             <div className={`${!collapsed ? "ml-20" : "ml-0"}  transition-all duration-300`}>
                 <aside className="ml-5 min-h-screen w- max-w-sm bg-fundo-fundo border border-borda rounded-r-3xl flex flex-col items-center pt-8 pb-8 gap-4 overflow-y-auto">
-
-                    <div className="flex w-full px-4 justify-center flex-col items-center">
-                        <button className="w-full h-15 bg-accent rounded-lg shadow-[0px_6px_0px_0px_#740510] transition-transform duration-150 cursor-pointer hover:scale-102 active:scale-98 text-pri text-2xl font-bold">
-                            Escrever
-                        </button>
-                    </div>
+                    <Link to="/inbox/criacaochamado">
+                        <div className="flex w-full pr-5 pl-5 px-4 justify-center flex-row items-center" >
+                            <button className="w-full h-15 bg-accent pr-10 pl-10 rounded-lg shadow-[0px_6px_0px_0px_#740510] transition-transform duration-150 cursor-pointer hover:scale-102 active:scale-98 text-pri text-2xl font-bold">
+                                Escrever
+                            </button>
+                        </div>
+                    </Link>
 
                     <Filtros />
 
@@ -49,15 +50,20 @@ const Inbox = ({ collapsed, setCollapsed }) => {
                     <div className="w-80  border-b border-borda/30">
                     </div>
 
-                    <div className="flex flex-col gap-2 justify-center w-84">
-                        <div className="flex flex-row text-2xl text-pri gap-3">
-                            <label className="" htmlFor="De">Data Inicial:</label>
-                            <input className="flex bg-fundo-razo" type="date" />
+                    <div className="flex flex-col gap-2 w-84 pl-10 pr-10">
+                        <div className="flex flex-row items-between justify-between text-2xl text-pri gap-3">
+                            <label className="" htmlFor="De">De:</label>
+                            <input className="flex uppercase text-sm p-2 pr-7 pl-7 justify-between text-borda bg-fundo-razo" type="date" />
                         </div>
 
-                        <div className="flex flex-row text-2xl text-pri gap-2">
-                            <label className="" htmlFor="De">Data final:</label>
-                            <input className="flex bg-fundo-razo" type="date" />
+                        <div className="flex flex-row items-between justify-between text-2xl text-pri gap-2">
+                            <label className="" htmlFor="De">A:</label>
+                            <input className="flex uppercase text-sm p-2 pr-7 pl-7 justify-between text-borda bg-fundo-razo" type="date" />
+                        </div>
+
+                         <div className="flex flex-row items-between justify-between text-2xl text-pri gap-2">
+                            <label className="" htmlFor="De">Por:</label>
+                            <input className="flex uppercase text-sm p-2 pr-7 pl-7 justify-between text-borda bg-fundo-razo" type="date"  />
                         </div>
 
                         <div className="w-80  border-b border-borda/30">
@@ -87,7 +93,7 @@ const Inbox = ({ collapsed, setCollapsed }) => {
                                 key={index}
                                 index={index}
                                 mockInfo={mockChamados[index]}
-                                
+
                             />
                         ))
                     }

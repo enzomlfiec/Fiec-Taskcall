@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 const ChamadoBullet = ({ index, mockInfo }) => {
     const [mostrarChamado, setMostrarChamado] = React.useState(false)
 
-    const [StatusInfo, setStatusInfo] = React.useState({
+    const [statusInfo, setStatusInfo] = React.useState({
         StatusID: 2,
         cor: "sec-verde",
         nome: "ResolvStatusIDo.",
@@ -74,13 +74,20 @@ const ChamadoBullet = ({ index, mockInfo }) => {
                         <p alt="DD, MMMM YYYY - HH:MM">{mockInfo.data}</p>
                     </div>
                 </div>
-                <div id="ChamadoStatus" className={`w-6 h-6 bg-${StatusInfo.cor} rounded-full drop-shadow-sm drop-shadow-black/25 shadow-[inset_0_5px_0_0px_#00000050]`}>
+                <div id="ChamadoStatus" className={`w-6 h-6 bg-${statusInfo.cor} rounded-full drop-shadow-sm drop-shadow-black/25 shadow-[inset_0_5px_0_0px_#00000050]`}>
                 </div>
             </div>
-            <div className={`bg-fundo-profundo/50 backdrop-blur-lg inset-0 h-screen w-screen opacity-0 absolute flex z-50 ${mostrarChamado ? " opacity-100" : "invisible"} justify-center items-center align-middle transition-all duration-500`}
+            <div className={`bg-fundo-profundo/80 backdrop-blur-lg inset-0 h-screen w-screen opacity-0 absolute flex z-50 ${mostrarChamado ? " opacity-100" : "invisible"} justify-center items-center align-middle transition-all duration-500`}
                 onClick={() => setMostrarChamado(!mostrarChamado)}>
-                <div className="p-50 rounded-4xl bg-fundo-razo">
-                    <p className="text-white">Você clickou no chamado: {mockInfo.id}</p>
+                <div className="p-50 rounded-4xl bg-fundo-razo text-white">
+                    <p className="flex text-white">Você clickou no chamado: {mockInfo.id}</p>
+                    <p> Descrição:{mockInfo.descricao} </p>
+                    <p>• Por: {mockInfo.nome}</p>
+                    <p>• Cargo: {mockInfo.cargo}</p>
+                    <p>• Sala {mockInfo.salas}</p>
+                    <p>• {mockInfo.dispositivo}</p>
+                    <p>• Status: {statusInfo.nome}</p>
+                    
                 </div>
 
             </div>
