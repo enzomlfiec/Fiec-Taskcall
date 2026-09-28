@@ -58,7 +58,7 @@ const ChamadoBullet = ({ index, mockInfo }) => {
                             className='w-6 h-6 text-borda opacity-50' />
                     </div>
 
-                    <div className='w-[15%] text-white border-r-2 border-borda/30'>
+                    <div className='w-[15%] text-pri border-r-2 border-borda/30'>
                         <p alt="Nome professor">{mockInfo.nome}</p>
                     </div>
                     <div className='w-[15%] text-borda border-r-2 border-borda/30'>
@@ -67,7 +67,7 @@ const ChamadoBullet = ({ index, mockInfo }) => {
                     <div className='w-[15%] text-borda border-r-2 border-borda/30'>
                         <p alt="Sala 39">{mockInfo.sala}</p>
                     </div>
-                    <div className='w-[15%] text-white border-r-2 border-borda/30'>
+                    <div className='w-[15%] text-pri border-r-2 border-borda/30'>
                         <p alt="Dispositivo">{mockInfo.dispositivo}</p>
                     </div>
                     <div className='w-[20%] text-borda border-borda/30'>
@@ -79,15 +79,17 @@ const ChamadoBullet = ({ index, mockInfo }) => {
             </div>
             <div className={`bg-fundo-profundo/80 backdrop-blur-lg inset-0 h-screen w-screen opacity-0 absolute flex z-50 ${mostrarChamado ? " opacity-100" : "invisible"} justify-center items-center align-middle transition-all duration-500`}
                 onClick={() => setMostrarChamado(!mostrarChamado)}>
-                <div className="p-50 rounded-4xl bg-fundo-razo text-white">
-                    <p className="flex text-white">Você clickou no chamado: {mockInfo.id}</p>
-                    <p> Descrição:{mockInfo.descricao} </p>
-                    <p>• Por: {mockInfo.nome}</p>
-                    <p>• Cargo: {mockInfo.cargo}</p>
-                    <p>• Sala {mockInfo.salas}</p>
-                    <p>• {mockInfo.dispositivo}</p>
-                    <p>• Status: {statusInfo.nome}</p>
-                    
+                <div className="p-1 h-100 w-200 rounded-lg bg-fundo-profundo text-pri flex flex-col items-baseline justify-baseline">
+                    <div className="bg-debug h-full w-full ">
+                        <p className="flex ">Chamado: {mockInfo.id}</p>
+                        <p className="flex "> Descrição:{mockInfo.descricao} </p>
+                        <p>• Por: {mockInfo.nome}</p>
+                        <p>• Cargo: {mockInfo.cargo}</p>
+                        <p>• Sala {mockInfo.salas}</p>
+                        <p>• {mockInfo.dispositivo}</p>
+                        <p>• Status: {statusInfo.nome}</p>
+                    </div>
+
                 </div>
 
             </div>

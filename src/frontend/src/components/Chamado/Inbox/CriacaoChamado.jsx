@@ -10,31 +10,31 @@ function CriacaoChamado() {
 
 
     return (
-        <main className="flex min-h-screen w-screen items-center justify-center bg-[url(public/assets/login2.png)] bg-cover px-4 py-8 text-white">
+        <main className="flex min-h-screen w-screen items-center justify-center bg-[url(public/assets/login2.png)] bg-cover px-4 py-8 text-pri">
             <section
                 aria-labelledby="titulo-criacao-chamado"
                 className="flex w-full max-w-3xl flex-col justify-center gap-5 rounded-4xl border-2 border-sec backdrop-blur-2xl p-6 md:p-10"
             >
                 <Link to="/inbox">
-                    <div className="text-borda hover:text-white transition-all duration-300 cursor-pointer">
+                    <div className="text-borda hover:text-pri transition-all duration-300 cursor-pointer">
                         <ArrowLeft />
                     </div>
                 </Link>
                 <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                    <h1 id="titulo-criacao-chamado" className="text-3xl font-bold text-white">
+                    <h1 id="titulo-criacao-chamado" className="text-3xl font-bold text-pri">
                         Criar Chamado
                     </h1>
 
                     <nav aria-label="Ações do chamado" className="flex flex-col gap-3 sm:items-end">
                         <button
                             type="button"
-                            className="bg-accent botao h-10 min-w-32 rounded-md px-4 text-sm font-semibold text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
+                            className="bg-accent botao h-10 min-w-32 rounded-md px-4 text-sm font-semibold text-pri transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pri focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
                         >
                             Rascunhos
                         </button>
                         <button
                             type="button"
-                            className="bg-accent botao h-10 min-w-32 rounded-md px-4 text-sm font-semibold text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
+                            className="bg-accent botao h-10 min-w-32 rounded-md px-4 text-sm font-semibold text-pri transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pri focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
                         >
                             Chamados Anteriores
                         </button>
@@ -45,7 +45,7 @@ function CriacaoChamado() {
 
                 <form aria-label="Formulário de criação de chamado" className="flex w-full flex-col gap-5">
                     <div className="flex w-full flex-col gap-2">
-                        <label htmlFor="titulo-chamado" className="font-bold text-white">
+                        <label htmlFor="titulo-chamado" className="font-bold text-pri">
                             Título do Chamado
                             <span aria-hidden="true" className="ml-1 text-accent font-bold">*</span>
                         </label>
@@ -56,12 +56,12 @@ function CriacaoChamado() {
                             required
                             aria-required="true"
                             placeholder="Insira aqui o título do chamado"
-                            className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-white placeholder:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
+                            className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-pri placeholder:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
                         />
                     </div>
 
                     <div className="flex w-full flex-col gap-2">
-                        <label htmlFor="categoria-chamado" className="font-bold text-white">
+                        <label htmlFor="categoria-chamado" className="font-bold text-pri">
                             Categoria
                             <span aria-hidden="true" className="ml-1 text-accent font-bold">*</span>
                         </label>
@@ -71,7 +71,7 @@ function CriacaoChamado() {
                             required
                             aria-required="true"
                             defaultValue=""
-                            className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
+                            className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-pri focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
                         >
                             <option value="" disabled>
                                 Selecione uma categoria
@@ -82,7 +82,7 @@ function CriacaoChamado() {
                     </div>
 
                     <div className="flex w-full flex-col gap-2">
-                        <label htmlFor="descricao-chamado" className="font-bold text-white">
+                        <label htmlFor="descricao-chamado" className="font-bold text-pri">
                             Descrição do Chamado
                             <span aria-hidden="true" className="ml-1 text-accent font-bold">*</span>
                         </label>
@@ -93,7 +93,7 @@ function CriacaoChamado() {
                             aria-required="true"
                             rows="6"
                             placeholder="Descreva o problema ou a solicitação"
-                            className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-white placeholder:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
+                            className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-pri placeholder:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
                         />
                     </div>
 
@@ -104,7 +104,7 @@ function CriacaoChamado() {
                     <div className="flex items-center justify-center pt-2">
                         <button
                             type="submit"
-                            className="bg-accent botao h-11 min-w-40 rounded-md px-6 text-base font-bold text-white transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
+                            className="bg-accent botao h-11 min-w-40 rounded-md px-6 text-base font-bold text-pri transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pri focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
                         >
                             Enviar chamado
                         </button>

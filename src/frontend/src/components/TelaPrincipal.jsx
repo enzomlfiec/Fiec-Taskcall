@@ -102,7 +102,7 @@ const TelaPrincipal = ({ collapsed, setCollapsed }) => {
                             <div className=" absolute inset-0 bg-linear-to-t from-[#1d192b] via-fundo-fundo-fun/0 to-transparent pointer-events-none z-5"></div>
                             <button
                                 onClick={() => navigate("/inbox")}
-                                className="text-white relative bottom-10 botao bg-accent w-32 pt-2 pb-5 text-center z-10 transition-all hover:brightness-70 duration-500! pointer-events-auto"
+                                className="text-pri relative bottom-10 botao bg-accent w-32 pt-2 pb-5 text-center z-10 transition-all hover:brightness-70 duration-500! pointer-events-auto"
                             >
                                 Ver tudo
                             </button>

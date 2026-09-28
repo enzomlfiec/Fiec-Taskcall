@@ -3,6 +3,7 @@ import "../style.css";
 import FakeLayers from "./components/FakeLayers";
 import Inbox from "./components/Chamado/Inbox/Inbox";
 import TelaPrincipal from "./components/TelaPrincipal";
+import Registro from "./components/Registro";
 import PageNotFound from "./components/PageNotFound";
 import React from "react";
 
@@ -21,6 +22,7 @@ function App() {
 
           <Route path="/" element={<FakeLayers />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/registro" element={<Registro />} />
 
           <Route path="/tela-principal" element={<TelaPrincipal
             collapsed={collapsed}
@@ -41,11 +43,11 @@ function App() {
 
           {/* Futuras rotas de chamado, usuário e configurações
 
-         <Route  path="/chamados" element={<h1 className="text-white">Chamados</h1>}/>
+         <Route  path="/chamados" element={<h1 className="text-pri">Chamados</h1>}/>
 
-         <Route  path="/configuracoes" element={<h1 className="text-white">Configurações</h1>}/>
+         <Route  path="/configuracoes" element={<h1 className="text-pri">Configurações</h1>}/>
 
-          <Route path="/usuario "element={<h1 className="text-white">Usuário</h1>} />
+          <Route path="/usuario "element={<h1 className="text-pri">Usuário</h1>} />
        */}
         </Routes>
       }

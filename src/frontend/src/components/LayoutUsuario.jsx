@@ -22,7 +22,7 @@ const LayoutUsuario = () => {
 
                 <div className="flex flex-col gap-1">
 
-                    <span className="h-7 w-57 px-2 bg-fundo-razo rounded-md text-white font-medium text-lg flex items-center">
+                    <span className="h-7 w-57 px-2 bg-fundo-razo rounded-md text-pri font-medium text-lg flex items-center">
                         Usuário S1337
                     </span>
 

@@ -1,6 +1,10 @@
 import { useNavigate } from "react-router-dom"
 import React, { useEffect } from "react";
 import userMockData from "../assets/scripts/mock/userMockData";
+import { Link } from "react-router-dom";
+import Registro from "./Registro";
+import { EyeClosed } from "lucide-react";
+import { Eye } from "lucide-react";
 
 function Login() {
 
@@ -8,6 +12,8 @@ function Login() {
     const [login, setLogin] = React.useState("")
     const [senha, setSenha] = React.useState("")
     const [valid, setValid] = React.useState(false)
+    const [passtype, setPassType] = React.useState("password")
+    
 
     useEffect(() => {
         if (senha != "" && login != "") {
@@ -40,42 +46,64 @@ function Login() {
             <div className="flex flex-col relative h-screen w-screen items-center justify-center bottom-10">
                 <img id="logo" src="public/assets/logo/logo-hor.png" className="w-125"></img>
 
-                <form onSubmit={handleSubmit} className="relative flex flex-col text-white bg-fundo-medio/20 backdrop-blur-sm p-20 pr-30 pl-30 gap-3 rounded-4xl border-sec border-2">
-                    <div className="flex items-center justify-center">
-                        <h1 className="select-none text-3xl font-bold">Entrar</h1>
-                    </div>
-                    <div>
-                        <label className="font-bold">RM/Email</label>
-                        <asterisco className="text-accent font-bold select-none"> * </asterisco>
-                    </div>
-                    <input
-                        value={login}
-                        onChange={(e) => setLogin(e.target.value)}
-                        className="text-white bg-fundo-profundo font-medium w-lg rounded-md p-2"
-                        type="text"
-                        placeholder="*Insira seu código RM ou Email."
-                    />
+                <form onSubmit={handleSubmit} className="relative flex flex-col items-center text-pri bg-fundo-medio/20 backdrop-blur-sm p-20 pr-30 pl-30 gap-3 rounded-4xl border-sec border-2">
+                    <div className="flex flex-col gap-4 items-baseline">
 
-                    <div>
-                        <label className="font-bold">Senha</label>
-                        <asterisco className="text-accent font-bold select-none"> * </asterisco>
+                        <div className="flex items-center justify-center">
+                            <h1 className="select-none text-3xl font-bold">Entrar</h1>
+                        </div>
+                        <div>
+                            <label className="font-bold">RM/Email</label>
+                            <span className="text-accent font-bold select-none"> * </span>
+                        </div>
+                        <input
+                            value={login}
+                            onChange={(e) => setLogin(e.target.value)}
+                            className="text-pri bg-fundo-profundo font-medium w-lg rounded-md p-2"
+                            type="text"
+                            placeholder="*Insira seu código RM ou Email."
+                        />
+
+                        <div>
+                            <label className="font-bold">Senha</label>
+                            <span className="text-accent font-bold select-none"> * </span>
+                        </div>
+                        <div className="flex flex-row items-center justify-center gap-2">
+                            <input value={senha}
+                                onChange={(e) => setSenha(e.target.value)}
+                                className="text-pri bg-fundo-profundo font-medium w-lg rounded-md p-2"
+                                type={passtype}
+                                placeholder="*Insira a senha vinculada ao perfil."
+                            />
+                            <span
+                                className="cursor-pointer"
+                                onClick={() => {
+                                    if (passtype == "password") {
+                                        setPassType("text")
+                                    } else {
+                                        setPassType("password")
+                                    }
+                                }}
+                            >
+                                {passtype == "password" ? <EyeClosed /> : <Eye />}
+                            </span>
+                        </div>
+                        <br></br>
+
                     </div>
-                    <input value={senha}
-                        onChange={(e) => setSenha(e.target.value)}
-                        className="text-white bg-fundo-profundo font-medium w-lg rounded-md p-2"
-                        type="password"
-                        placeholder="*Insira a senha vinculada ao perfil."
-                    />
-
-                    <br></br>
-
-                    <div className="flex items-center justify-center">
+                    <div className="flex items-center justify-center mb-4">
                         <button type="submit" disabled={!valid} className="botao disabled:opacity-50 disabled:cursor-not-allowed! disabled:hover:scale-97 disabled:bg-[#740510] bg-accent"> Entrar </button>
                     </div>
+                    <p>
+                        Não tem uma conta?
+                        <Link to="/registro" className="text-accent ml-2 hover:underline">
+                            Cadastre-se
+                        </Link>
+                    </p>
                     {/* onClick={() => navigate("/tela-principal")} */}
                 </form>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 
 }

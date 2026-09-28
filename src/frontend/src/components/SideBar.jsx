@@ -88,7 +88,7 @@ function SideBar({ collapsed, setCollapsed }) {
 
         </div>
       </div>
-      <div id="sidebarpull" className={`bg-fundo-razo text-5xl text-borda font-bold select-none pt-5 pb-5 rounded-br-4xl rounded-tr-4xl text-center align-middle leading-loose cursor-pointer hover:bg-borda transition-all duration-300 hover:text-white`}
+      <div id="sidebarpull" className={`bg-fundo-razo text-5xl text-borda font-bold select-none pt-5 pb-5 rounded-br-4xl rounded-tr-4xl text-center align-middle leading-loose cursor-pointer hover:bg-borda transition-all duration-300 hover:text-pri`}
         onClick={() => { setCollapsed(!collapsed) }}
       ><p className={`${collapsed ? "rotate-180" : "rotate-0"} text-[32px] transition-all duration-500`}>
           <ChevronLeft />
