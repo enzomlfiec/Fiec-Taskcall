@@ -6,7 +6,7 @@ const ChamadoBullet = ({
     mockInfo,
     checkedInboxes = [],
     setCheckedInboxes = () => {}
-}) => {
+}) => {g
 
     const [mostrarChamado, setMostrarChamado] = React.useState(false)
 
