@@ -220,7 +220,6 @@ let mockChamados = [
         lixeira: false,
         status: 2
     },
-
     {
         id: 18,
         salvo: false,

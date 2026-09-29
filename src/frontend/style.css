@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+.poppins {
+    font-family: "Poppins", sans-serif;
+}
+
 @theme {
 
     /* Cor principal */
@@ -30,6 +34,7 @@
 
 
     --color-debug: #ff00ff;
+
 
 }
 
