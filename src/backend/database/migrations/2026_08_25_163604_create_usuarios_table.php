@@ -5,26 +5,17 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
-    /**
-     * Run the migrations.
-     */
     public function up(): void {
         Schema::create('usuarios', function (Blueprint $table) {
-            $table->string('nome');
-            $table->integer('id_usuario')->autoIncrement();
+            $table->integer('id_usuario');
             $table->integer('iuid_usuario');
-            $table->string('email', 100)->unique(); 
-            // $table->string('senha', 255);  Comentada pois não precisaria de uma senha para entrar no taskcall, o usuario já estará logado nele, e o taskcall vai "acreditar" no layers. -- confirmar com a Adi 
+            $table->string('email', 50);
+            $table->string('senha', 15);
             $table->integer('cod_responsavel');
             $table->string('funcao', 30);
-            $table->timestamps();                 
+            $table->primary('id_usuario');
+            $table->string('nome',100);
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void {
-        Schema::dropIfExists('usuarios');
-    }
+    public function down(): void { Schema::dropIfExists('usuarios'); }
 };

@@ -1,102 +1,84 @@
 import { Bookmark } from "lucide-react"
 import React from "react"
 
+const statusConfig = {
+    "Aberto": {
+        cor: "bg-sec-amarelo",
+        nome: "Não visualizado."
+    },
+
+    "Em progresso": {
+        cor: "bg-sec-azul",
+        nome: "Em progresso."
+    },
+
+    "Aguardando": {
+        cor: "bg-borda",
+        nome: "Em analise."
+    },
+
+    "Resolvido": {
+        cor: "bg-sec-verde",
+        nome: "Resolvido."
+    },
+
+    "Urgencia": {
+        cor: "bg-sec-vermelho",
+        nome: "Urgencia."
+    }
+}
+
+const proximoStatusConfig = {
+    "Aberto": {
+        cor: "bg-sec-azul",
+        nome: "Em progresso."
+    },
+
+    "Em progresso": {
+        cor: "bg-sec-verde",
+        nome: "Resolvido."
+    },
+
+    "Resolvido": {
+        cor: "bg-borda",
+        nome: "Em analise."
+    },
+
+    "Aguardando": {
+        cor: "bg-sec-vermelho",
+        nome: "Urgencia."
+    },
+
+    "Urgencia": {
+        cor: "bg-sec-azul",
+        nome: "Em progresso."
+    }
+}
+
 const ChamadoBullet = ({
     index,
-    mockInfo,
+    chamado,
     checkedInboxes = [],
     setCheckedInboxes = () => {}
 }) => {
 
     const [mostrarChamado, setMostrarChamado] = React.useState(false)
 
-    const [proxStatusInfo, setProxStatusInfo] = React.useState({
-        StatusID: 2,
-        cor: "sec-verde",
-        nome: "Insira aqui o nome do status"
-    })
+    const statusAtual = String(
+        chamado?.status || ""
+    ).trim()
 
-    const [statusInfo, setStatusInfo] = React.useState({
-        StatusID: 2,
-        cor: "sec-verde",
-        nome: "Insira aqui o nome do status."
-    })
-
-    React.useEffect(() => {
-
-        if (mockInfo.status == 0) {
-
-            setStatusInfo({
-                StatusID: 0,
-                cor: "sec-amarelo",
-                nome: "Não visualizado."
-            })
-
-            setProxStatusInfo({
-                StatusID: 1,
-                cor: "sec-azul",
-                nome: "Em progresso."
-            })
-
-        } else if (mockInfo.status == 1) {
-
-            setStatusInfo({
-                StatusID: 1,
-                cor: "sec-azul",
-                nome: "Em progresso."
-            })
-
-            setProxStatusInfo({
-                StatusID: 2,
-                cor: "sec-verde",
-                nome: "Resolvido."
-            })
-
-        } else if (mockInfo.status == 2) {
-
-            setStatusInfo({
-                StatusID: 2,
-                cor: "sec-verde",
-                nome: "Resolvido."
-            })
-
-            setProxStatusInfo({
-                StatusID: 3,
-                cor: "sec-amarelo",
-                nome: "Em analise."
-            })
-
-        } else if (mockInfo.status == 3) {
-
-            setStatusInfo({
-                StatusID: 3,
-                cor: "borda",
-                nome: "Em analise."
-            })
-
-            setProxStatusInfo({
-                StatusID: 4,
-                cor: "sec-vermelho",
-                nome: "Urgencia."
-            })
-
-        } else if (mockInfo.status == 4) {
-
-            setStatusInfo({
-                StatusID: 4,
-                cor: "sec-vermelho",
-                nome: "Urgencia."
-            })
-
-            setProxStatusInfo({
-                StatusID: 1,
-                cor: "sec-azul",
-                nome: "Em progresso."
-            })
+    const statusInfo =
+        statusConfig[statusAtual] || {
+            cor: "bg-borda",
+            nome: statusAtual || "Status desconhecido"
         }
 
-    }, [mockInfo.status])
-
+    const proxStatusInfo =
+        proximoStatusConfig[statusAtual] || {
+            cor: "bg-borda",
+            nome: "Status desconhecido"
+        }
 
     const checkado = checkedInboxes.includes(index)
 
@@ -117,7 +99,6 @@ const ChamadoBullet = ({
             )
         }
     }
-
 
     return (
         <>
@@ -145,7 +126,7 @@ const ChamadoBullet = ({
 
                     <Bookmark
                         className={`h-6 w-6 shrink-0 ${
-                            !mockInfo.bookmarked
+                            !chamado?.bookmarked
                                 ? "text-borda opacity-50"
                                 : "text-pri fill-pri"
                         }`}
@@ -156,36 +137,42 @@ const ChamadoBullet = ({
 
                 <div
                     className="flex min-w-0 flex-1 items-center py-2 bg-debug/0"
-                    onClick={() => setMostrarChamado(!mostrarChamado)}
+                    onClick={() =>
+                        setMostrarChamado(!mostrarChamado)
+                    }
                 >
 
                     <div className="min-w-0 flex-1 border-r-2 border-borda/30 px-3">
                         <p className="truncate text-pri">
-                            {mockInfo.nome}
+                            {chamado?.solicitante || "Usuário"}
                         </p>
                     </div>
+
 
                     <div className="hidden min-w-0 flex-1 border-r-2 border-borda/30 px-3 sm:block">
                         <p className="truncate text-borda">
-                            {mockInfo.categoria}
+                            {chamado?.categoria}
                         </p>
                     </div>
+
 
                     <div className="hidden min-w-0 flex-1 border-r-2 border-borda/30 px-3 md:block">
                         <p className="truncate text-borda">
-                            {mockInfo.sala}
+                            {chamado?.setor}
                         </p>
                     </div>
+
 
                     <div className="hidden min-w-0 flex-1 border-r-2 border-borda/30 px-3 lg:block">
                         <p className="truncate text-pri">
-                            {mockInfo.dispositivo}
+                           Máquina {chamado?.num_equipamento}
                         </p>
                     </div>
 
+
                     <div className="hidden min-w-0 flex-1 px-3 xl:block">
                         <p className="truncate text-borda">
-                            {mockInfo.data}
+                            {chamado?.data}
                         </p>
                     </div>
 
@@ -196,7 +183,7 @@ const ChamadoBullet = ({
                     id="ChamadoStatus"
                     className={`
                         h-6 w-6 shrink-0 rounded-full
-                        bg-${statusInfo.cor}
+                        ${statusInfo.cor}
                         drop-shadow-sm drop-shadow-black/25
                         shadow-[inset_0_5px_0_0px_#00000050]
                     `}
@@ -205,13 +192,17 @@ const ChamadoBullet = ({
             </div>
 
 
+            {/* MODAL */}
+
             <div
                 className={`bg-fundo-profundo/80 backdrop-blur-lg inset-0 h-screen w-screen opacity-0 absolute flex z-50 ${
                     mostrarChamado
                         ? "opacity-100"
                         : "invisible"
                 } justify-center items-center align-middle transition-all duration-500`}
-                onClick={() => setMostrarChamado(!mostrarChamado)}
+                onClick={() =>
+                    setMostrarChamado(!mostrarChamado)
+                }
             >
 
                 <div
@@ -222,7 +213,7 @@ const ChamadoBullet = ({
                     <div className="flex flex-col poppins gap-2 p-5 bg-fundo-fundo border-2 border-borda rounded-4xl h-full w-full">
 
                         <h1 className="text-4xl font-medium">
-                            {mockInfo.titulo}
+                            {chamado?.titulo}
                         </h1>
 
 
@@ -230,22 +221,27 @@ const ChamadoBullet = ({
 
                             <p>
                                 Chamado:
+
                                 <span className="font-bold">
-                                    {mockInfo.id}
+                                    {chamado?.cod_chamado}
                                 </span>
                             </p>
+
 
                             <p>
                                 • Por:
+
                                 <span className="font-bold">
-                                    {mockInfo.nome}
+                                    {chamado?.solicitante}
                                 </span>
                             </p>
 
+
                             <p>
                                 • Cargo:
+
                                 <span className="font-bold">
-                                    {mockInfo.cargo}
+                                    {chamado?.usuario?.funcao || "Usuário"}
                                 </span>
                             </p>
 
@@ -260,7 +256,7 @@ const ChamadoBullet = ({
                         <div className="p-2 bg-fundo-razo rounded h-20">
 
                             <p className="flex font-light">
-                                {mockInfo.descricao}
+                                {chamado?.descricao}
                             </p>
 
                         </div>
@@ -271,11 +267,11 @@ const ChamadoBullet = ({
                             <div className="flex flex-row gap-3 w-full">
 
                                 <p>
-                                    {mockInfo.sala}
+                                    {chamado?.setor}
                                 </p>
 
                                 <p>
-                                    • {mockInfo.dispositivo}
+                                    • {chamado?.num_equipamento}
                                 </p>
 
                             </div>
@@ -298,12 +294,14 @@ const ChamadoBullet = ({
                                 Favoritar
                             </button>
 
+
                             <button>
                                 Enviar a Lixeira
                             </button>
 
+
                             <button
-                                className={`bg-${proxStatusInfo.cor}`}
+                                className={proxStatusInfo.cor}
                             >
                                 Marcar como: "{proxStatusInfo.nome}"
                             </button>

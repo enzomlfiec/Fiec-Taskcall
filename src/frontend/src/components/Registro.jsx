@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom"
 import React, { useEffect } from "react";
-import userMockData from "../assets/scripts/mock/userMockData";
 import { Link } from "react-router-dom";
 import { EyeClosed } from "lucide-react";
 import { Eye } from "lucide-react";
@@ -22,44 +21,41 @@ function Registro() {
         } else { setCampoValid(false) }
     }, [campoSenha, campoRM, campoEmail])
 
-    function handleSubmit(event) {
-        event.preventDefault()
+    //substituição da função com mock para o banco de dados
+   async function handleSubmit(event) {
+    event.preventDefault();
 
+    try {
+        const response = await fetch("http://localhost:8000/api/usuarios", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+            },
+            body: JSON.stringify({
+                id_usuario: Number(campoRM), //apesar de ser numero, esse input estava sendo entendido como STRING, por isso colocar o NUMBER
+                nome: campoNome,
+                email: campoEmail,
+                senha: campoSenha,
+            }),
+        });
 
-        const usuario = userMockData.find(
+        const data = await response.json();
 
-            function (usuario) {
-                return (usuario.RM === campoRM || usuario.email === campoEmail)
-            })
-
-        if (usuario) {
-            alert("Este RM ou Email ja foi cadastrado cadastrado.")
-        } else {
-            try {
-                const cadastro = {
-                    id: userMockData.length,
-                    uid: crypto.randomUUID(),
-                    email: campoEmail,
-                    nome: campoNome,
-                    RM: campoRM,
-                    senha: campoSenha
-                }
-
-                userMockData.push(cadastro)
-
-                if (userMockData.find((u) => u.uid === cadastro.uid)) {
-                    alert("Usuario cadastrado com sucesso!.")
-                    navigate("/login")
-                } else {
-                    throw new Error("Erro ao cadastrar usuario.")
-                }
-            } catch (error) {
-                alert("Erro ao cadastrar usuario.")
-                return
-            }
-            navigate("/login")
+        if (!response.ok) {
+            console.error(data);
+            alert(data.message ?? "Erro ao cadastrar usuário.");
+            return;
         }
+
+        alert("Usuário cadastrado com sucesso!");
+        navigate("/login");
+
+    } catch (error) {
+        console.error(error);
+        alert("Não foi possível conectar ao servidor.");
     }
+}
 
     // const userInfo = userMockData.find(validarUsuario)
 

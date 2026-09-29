@@ -1,11 +1,12 @@
 <?php
 
-$host = "localhost";
+$host = "127.0.0.1";
 $usuario = "root";
-$senha = "";
+$senha = "1234";
 $banco = "suporte_ti";
+$porta = 3310;
 
-$conn = new mysqli($host, $usuario, $senha, $banco);
+$conn = new mysqli($host, $usuario, $senha, $banco, $porta);
 
 if ($conn->connect_error) {
     die("Erro na conexão: " . $conn->connect_error);

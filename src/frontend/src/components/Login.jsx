@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import React, { useEffect } from "react";
-import userMockData from "../assets/scripts/mock/userMockData";
 import { Link } from "react-router-dom";
-import Registro from "./Registro";
 import { EyeClosed } from "lucide-react";
 import { Eye } from "lucide-react";
 
@@ -21,22 +19,39 @@ function Login() {
         } else { setValid(false) }
     }, [senha, login])
 
-    function handleSubmit(event) {
-        event.preventDefault()
+    //substituição da função handleSubmit com o mockdata Para bd
 
+    async function handleSubmit(event){
+        event.preventDefault();
 
-        const usuario = userMockData.find(
+            try {
+        const response = await fetch("http://127.0.0.1:8000/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+            },
+            body: JSON.stringify({
+                usuario: login,
+                senha: senha,
+            }),
+        });
 
-            function (usuario) {
-                return (usuario.RM === login || usuario.email === login) &&
-                    usuario.senha === senha
-            })
+        const data = await response.json();
 
-        if (usuario) {
-            navigate("/tela-principal")
-        } else {
-            alert("RM/Email ou senha incorretos.")
+        if (!response.ok) {
+            alert(data.message ?? "Usuário ou senha inválidos.");
+            return;
         }
+
+        console.log("Usuário autenticado:", data.usuario);
+
+        navigate("/tela-principal");
+
+    } catch (error) {
+        console.error("ERRO NO LOGIN:", error);
+        alert("Não foi possível conectar ao servidor.");
+    }
     }
 
     // const userInfo = userMockData.find(validarUsuario)
