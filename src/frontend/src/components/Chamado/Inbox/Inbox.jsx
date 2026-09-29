@@ -57,6 +57,7 @@ const Inbox = ({ collapsed, setCollapsed }) => {
                             >
                                 Escrever
                             </button>
+                        
                         </div>
                     </Link>
 
@@ -94,7 +95,7 @@ const Inbox = ({ collapsed, setCollapsed }) => {
 
                             <input
                                 id="dataDe"
-                                className="flex uppercase text-sm p-2 pr-7 pl-7 justify-between text-borda bg-fundo-razo"
+                                className="flex uppercase text-sm p-2 pr-7 pl-7 justify-between text-pri bg-fundo-razo"
                                 type="date"
                             />
                         </div>
@@ -106,7 +107,7 @@ const Inbox = ({ collapsed, setCollapsed }) => {
 
                             <input
                                 id="dataA"
-                                className="flex uppercase text-sm p-2 pr-7 pl-7 justify-between text-borda bg-fundo-razo"
+                                className="flex uppercase text-sm p-2 pr-7 pl-7 justify-between text-pri bg-fundo-razo"
                                 type="date"
                             />
                         </div>
@@ -118,7 +119,7 @@ const Inbox = ({ collapsed, setCollapsed }) => {
 
                             <input
                                 id="dataPor"
-                                className="flex uppercase text-sm p-2 pr-7 pl-7 justify-between text-borda bg-fundo-razo"
+                                className="flex uppercase text-sm p-2 pr-7 pl-7 justify-between text-pri bg-fundo-razo"
                                 type="date"
                             />
                         </div>

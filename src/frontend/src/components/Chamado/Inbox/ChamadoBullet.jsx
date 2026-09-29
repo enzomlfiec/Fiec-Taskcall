@@ -1,11 +1,12 @@
 import { Bookmark } from "lucide-react"
 import React from "react"
+import { Trash } from "lucide-react"
 
 const ChamadoBullet = ({
     index,
     mockInfo,
     checkedInboxes = [],
-    setCheckedInboxes = () => {}
+    setCheckedInboxes = () => { }
 }) => {
 
     const [mostrarChamado, setMostrarChamado] = React.useState(false)
@@ -124,11 +125,10 @@ const ChamadoBullet = ({
 
             <div
                 id="ChamadoBullet"
-                className={`flex w-full min-w-0 items-center gap-3 rounded-2xl bg-fundo-razo px-4 font-semibold drop-shadow-sm drop-shadow-black ${
-                    checkado
-                        ? "brightness-150 hover:brightness-300"
-                        : "hover:brightness-150"
-                } cursor-pointer transition-all duration-200`}
+                className={`flex w-full min-w-0 items-center gap-3 rounded-2xl bg-fundo-razo px-4 font-semibold drop-shadow-sm drop-shadow-black ${checkado
+                    ? "brightness-150 hover:brightness-300"
+                    : "hover:brightness-150"
+                    } cursor-pointer transition-all duration-200`}
             >
 
                 <div className="flex shrink-0 items-center gap-3">
@@ -144,11 +144,10 @@ const ChamadoBullet = ({
                     />
 
                     <Bookmark
-                        className={`h-6 w-6 shrink-0 ${
-                            !mockInfo.bookmarked
-                                ? "text-borda opacity-50"
-                                : "text-pri fill-pri"
-                        }`}
+                        className={`h-6 w-6 shrink-0 ${!mockInfo.bookmarked
+                            ? "text-borda opacity-50"
+                            : "text-pri fill-pri"
+                            }`}
                     />
 
                 </div>
@@ -191,7 +190,6 @@ const ChamadoBullet = ({
 
                 </div>
 
-
                 <div
                     id="ChamadoStatus"
                     className={`
@@ -206,16 +204,15 @@ const ChamadoBullet = ({
 
 
             <div
-                className={`bg-fundo-profundo/80 backdrop-blur-lg inset-0 h-screen w-screen opacity-0 absolute flex z-50 ${
-                    mostrarChamado
-                        ? "opacity-100"
-                        : "invisible"
-                } justify-center items-center align-middle transition-all duration-500`}
+                className={`bg-fundo-profundo/80 backdrop-blur-lg inset-0 h-screen w-screen opacity-0 absolute flex z-50 ${mostrarChamado
+                    ? "opacity-100"
+                    : "invisible"
+                    } justify-center items-center align-middle transition-all duration-500`}
                 onClick={() => setMostrarChamado(!mostrarChamado)}
             >
 
                 <div
-                    className="h-100 w-200 rounded-4xl bg-fundo-razo text-pri flex flex-col items-baseline justify-baseline"
+                    className="h-90 w-200 rounded-4xl bg-fundo-razo text-pri flex flex-col items-baseline justify-baseline"
                     onClick={(e) => e.stopPropagation()}
                 >
 
@@ -226,28 +223,41 @@ const ChamadoBullet = ({
                         </h1>
 
 
-                        <div className="flex flex-row gap-3">
+                        <div className="flex flex-row gap-3 justify-between">
 
-                            <p>
-                                Chamado:
-                                <span className="font-bold">
-                                    {mockInfo.id}
-                                </span>
-                            </p>
+                            <div className="flex flex-row gap-3">
+                                <p>
+                                    Chamado:
+                                    <span className="font-bold">
+                                        {mockInfo.id}
+                                    </span>
+                                </p>
 
-                            <p>
-                                • Por:
-                                <span className="font-bold">
-                                    {mockInfo.nome}
-                                </span>
-                            </p>
+                                <p>
+                                    • Por:
+                                    <span className="font-bold">
+                                        {mockInfo.nome}
+                                    </span>
+                                </p>
 
-                            <p>
-                                • Cargo:
-                                <span className="font-bold">
-                                    {mockInfo.cargo}
-                                </span>
-                            </p>
+                                <p>
+                                    • Cargo:
+                                    <span className="font-bold">
+                                        {mockInfo.cargo}
+                                    </span>
+                                </p>
+                            </div>
+
+
+                            <div className=" flex w-7 h-7 justify-center items-center bg-pri text-black rounded-full hover:scale-105 cursor-pointer"
+                            onClick={() => {setMostrarChamado(false)}}
+                            >
+                            
+                                <div className="">
+                                    X
+                                </div>
+                            </div>
+
 
                         </div>
 
@@ -257,7 +267,7 @@ const ChamadoBullet = ({
                         </h2>
 
 
-                        <div className="p-2 bg-fundo-razo rounded h-20">
+                        <div className="p-2 bg-fundo-razo rounded h-30">
 
                             <p className="flex font-light">
                                 {mockInfo.descricao}
@@ -268,10 +278,10 @@ const ChamadoBullet = ({
 
                         <div className="flex flex-row justify-between">
 
-                            <div className="flex flex-row gap-3 w-full">
+                            <div className="flex flex-row gap-4 w-full">
 
                                 <p>
-                                    {mockInfo.sala}
+                                    • {mockInfo.sala}
                                 </p>
 
                                 <p>
@@ -292,18 +302,22 @@ const ChamadoBullet = ({
                         </div>
 
 
-                        <div className="flex justify-end gap-3">
+                        <div className="flex justify-end gap-3 
+                        ">
 
-                            <button>
+                            <button className="flex flex-row gap-2 justify-center items-center h-10 p-2  hover:scale-105 transition-all duration-200 rounded-sm bg-sec-verde
+                            "
+                            >
+                                <Bookmark />
                                 Favoritar
                             </button>
 
-                            <button>
-                                Enviar a Lixeira
+                            <button className="flex flex-row gap-2 justify-center items-center h-10 p-2 hover:scale-105 transition-all duration-200 rounded-sm bg-accent ">
+                                <Trash /> Enviar a Lixeira
                             </button>
 
                             <button
-                                className={`bg-${proxStatusInfo.cor}`}
+                                className={`h-10 p-2 hover:scale-105 transition-all duration-200 rounded-sm bg-${proxStatusInfo.cor}`}
                             >
                                 Marcar como: "{proxStatusInfo.nome}"
                             </button>
