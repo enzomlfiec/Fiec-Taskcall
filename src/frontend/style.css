@@ -68,10 +68,11 @@
     display: inline-block;
 }
 
-.checkboxFalse {
+.checkboxTrue {
     border-radius: 6px;
     cursor: pointer;
     border: 2px solid rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.774);
     height: 24px;
     width: 24px;
     display: inline-block;

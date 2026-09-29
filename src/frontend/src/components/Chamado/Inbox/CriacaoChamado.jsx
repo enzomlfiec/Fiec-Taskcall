@@ -1,118 +1,252 @@
-import { ArrowLeft } from "lucide-react";
-import React from "react";
-import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react"
+import React from "react"
+import { Link, useNavigate } from "react-router-dom"
+import mockChamados from "../../../assets/scripts/mock/mockChamados"
 
 function CriacaoChamado() {
-    const [titulo, setTitulo] = React.useState("")
-    const [categoria, setCategoria] = React.useState("")
-    const [descrição, setDescrição] = React.useState("")
-    // const [first, setfirst] = React.useState("")
+    // const [campoTitulo, setTitulo] = React.useState("")
+    const [campoSala, setSala] = React.useState("")
+    const [campoDescricao, setDescricao] = React.useState("")
+    const [campoCategoria, setCategoria] = React.useState("")
+    const [campoCargo, setCargo] = React.useState("")
+    const [campoDispositivo, setDispositivo] = React.useState("")
 
+    const navigate = useNavigate()
+
+    function handleSubmit(e) {
+        e.preventDefault()
+
+        const today = new Date()
+
+        const dia = today.getDate()
+        const mes = today.getMonth() + 1
+        const ano = today.getFullYear()
+        const hora = today.getHours()
+        const minuto = today.getMinutes()
+
+        const newEntry = {
+            id: mockChamados.length + 1,
+            nome:"Usuário S1337",
+            salvo: false,
+            sala: campoSala,
+            descricao: campoDescricao,
+            categoria: campoCategoria,
+            cargo: "Suporte de TI",
+            dispositivo: campoDispositivo,
+            data:
+                dia + "/" +
+                mes + "/" +
+                ano + " - " +
+                hora + ":" +
+                minuto,
+            lixeira: false,
+            status: 0
+        }
+
+        mockChamados.unshift(newEntry)
+
+        navigate("/inbox")
+    }
 
     return (
         <main className="flex min-h-screen w-screen items-center justify-center bg-[url(public/assets/login2.png)] bg-cover px-4 py-8 text-pri">
-            <section
-                aria-labelledby="titulo-criacao-chamado"
-                className="flex w-full max-w-3xl flex-col justify-center gap-5 rounded-4xl border-2 border-sec backdrop-blur-2xl p-6 md:p-10"
-            >
+
+            <section className="flex w-full max-w-3xl flex-col gap-5 rounded-4xl border-2 border-sec p-6 backdrop-blur-2xl md:p-10">
+
                 <Link to="/inbox">
-                    <div className="text-borda hover:text-pri transition-all duration-300 cursor-pointer">
+                    <div className="cursor-pointer text-borda transition-all duration-300 hover:text-pri">
                         <ArrowLeft />
                     </div>
                 </Link>
-                <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                    <h1 id="titulo-criacao-chamado" className="text-3xl font-bold text-pri">
+
+                <header>
+                    <h1 className="text-3xl font-bold text-pri">
                         Criar Chamado
                     </h1>
-
-                    <nav aria-label="Ações do chamado" className="flex flex-col gap-3 sm:items-end">
-                        <button
-                            type="button"
-                            className="bg-accent botao h-10 min-w-32 rounded-md px-4 text-sm font-semibold text-pri transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pri focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
-                        >
-                            Rascunhos
-                        </button>
-                        <button
-                            type="button"
-                            className="bg-accent botao h-10 min-w-32 rounded-md px-4 text-sm font-semibold text-pri transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pri focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
-                        >
-                            Chamados Anteriores
-                        </button>
-                    </nav>
                 </header>
 
-                <hr aria-hidden="true" className="mt-1 w-full rounded-full border-0 bg-borda" />
+                <hr className="w-full border-0 bg-borda" />
 
-                <form aria-label="Formulário de criação de chamado" className="flex w-full flex-col gap-5">
-                    <div className="flex w-full flex-col gap-2">
-                        <label htmlFor="titulo-chamado" className="font-bold text-pri">
-                            Título do Chamado
-                            <span aria-hidden="true" className="ml-1 text-accent font-bold">*</span>
+                <form
+                    className="flex w-full flex-col gap-5"
+                    onSubmit={handleSubmit}
+                >
+
+                    {/* Titulo */}
+
+                    {/* <div className="flex w-full flex-col gap-2">
+                        <label
+                            htmlFor="Titulo"
+                            className="font-bold text-pri"
+                        >
+                            Titulo
+                            <span className="ml-1 text-accent">
+                                *
+                            </span>
                         </label>
+
                         <input
-                            id="titulo-chamado"
-                            name="titulo"
+                            id="Titulo"
                             type="text"
                             required
-                            aria-required="true"
-                            placeholder="Insira aqui o título do chamado"
-                            className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-pri placeholder:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
+                            value={campoTitulo}
+                            onChange={(e) => setTitulo(e.target.value)}
+                            placeholder="Insira seu Titulo"
+                            className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-pri placeholder:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                        />
+                    </div> */}
+
+
+                    {/* SALA */}
+
+                    <div className="flex w-full flex-col gap-2">
+                        <label
+                            htmlFor="sala"
+                            className="font-bold text-pri"
+                        >
+                            Sala
+                            <span className="ml-1 text-accent">
+                                *
+                            </span>
+                        </label>
+
+                        <input
+                            id="sala"
+                            type="text"
+                            required
+                            value={campoSala}
+                            onChange={(e) => setSala(e.target.value)}
+                            placeholder="Ex: Sala 39"
+                            className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-pri placeholder:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                         />
                     </div>
 
+
+                    {/* CATEGORIA */}
+
                     <div className="flex w-full flex-col gap-2">
-                        <label htmlFor="categoria-chamado" className="font-bold text-pri">
+                        <label
+                            htmlFor="categoria"
+                            className="font-bold text-pri"
+                        >
                             Categoria
-                            <span aria-hidden="true" className="ml-1 text-accent font-bold">*</span>
+                            <span className="ml-1 text-accent">
+                                *
+                            </span>
                         </label>
+
                         <select
-                            id="categoria-chamado"
-                            name="categoria"
+                            id="categoria"
                             required
-                            aria-required="true"
-                            defaultValue=""
-                            className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-pri focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
+                            value={campoCategoria}
+                            onChange={(e) => setCategoria(e.target.value)}
+                            className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-pri focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                         >
                             <option value="" disabled>
                                 Selecione uma categoria
                             </option>
-                            <option value="categoria1">Hardware</option>
-                            <option value="categoria2">Software</option>
+
+                            <option value="Hardware">
+                                Hardware
+                            </option>
+
+                            <option value="Software">
+                                Software
+                            </option>
                         </select>
                     </div>
 
+
+                    {/* CARGO */}
+{/* 
                     <div className="flex w-full flex-col gap-2">
-                        <label htmlFor="descricao-chamado" className="font-bold text-pri">
-                            Descrição do Chamado
-                            <span aria-hidden="true" className="ml-1 text-accent font-bold">*</span>
+                        <label
+                            htmlFor="cargo"
+                            className="font-bold text-pri"
+                        >
+                            Cargo
+                            <span className="ml-1 text-accent">
+                                *
+                            </span>
                         </label>
-                        <textarea
-                            id="descricao-chamado"
-                            name="descricao"
+
+                        <input
+                            id="cargo"
+                            type="text"
                             required
-                            aria-required="true"
-                            rows="6"
-                            placeholder="Descreva o problema ou a solicitação"
-                            className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-pri placeholder:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
+                            value={campoCargo}
+                            onChange={(e) => setCargo(e.target.value)}
+                            placeholder="Ex: Professor"
+                            className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-pri placeholder:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                        />
+                    </div> */}
+
+
+                    {/* DISPOSITIVO */}
+
+                    <div className="flex w-full flex-col gap-2">
+                        <label
+                            htmlFor="dispositivo"
+                            className="font-bold text-pri"
+                        >
+                            Dispositivo
+                            <span className="ml-1 text-accent">
+                                *
+                            </span>
+                        </label>
+
+                        <input
+                            id="dispositivo"
+                            type="text"
+                            required
+                            value={campoDispositivo}
+                            onChange={(e) => setDispositivo(e.target.value)}
+                            placeholder="Ex: Máquina 25"
+                            className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-pri placeholder:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                         />
                     </div>
 
-                    <p className="text-sm text-slate-300">
-                        Campos marcados com <span aria-hidden="true" className="font-bold text-accent">*</span> são obrigatórios.
-                    </p>
+
+                    {/* DESCRIÇÃO */}
+
+                    <div className="flex w-full flex-col gap-2">
+                        <label
+                            htmlFor="descricao"
+                            className="font-bold text-pri"
+                        >
+                            Descrição
+                            <span className="ml-1 text-accent">
+                                *
+                            </span>
+                        </label>
+
+                        <textarea
+                            id="descricao"
+                            required
+                            value={campoDescricao}
+                            onChange={(e) => setDescricao(e.target.value)}
+                            rows="6"
+                            placeholder="Descreva o problema ou solicitação"
+                            className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-pri placeholder:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                        />
+                    </div>
+
 
                     <div className="flex items-center justify-center pt-2">
                         <button
                             type="submit"
-                            className="bg-accent botao h-11 min-w-40 rounded-md px-6 text-base font-bold text-pri transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pri focus-visible:ring-offset-2 focus-visible:ring-offset-fundo-medio"
+                            className="botao h-11 min-w-40 rounded-md bg-accent px-6 text-base font-bold text-pri transition hover:brightness-110"
                         >
                             Enviar chamado
                         </button>
                     </div>
+
                 </form>
+
             </section>
+
         </main>
-    );
+    )
 }
 
-export default CriacaoChamado;
+export default CriacaoChamado
