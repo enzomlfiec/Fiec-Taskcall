@@ -5,9 +5,27 @@ import { Trash } from "lucide-react"
 const ChamadoBullet = ({
     index,
     mockInfo,
+    mockChamados,
+    chamado,
+    setChamados,
     checkedInboxes = [],
     setCheckedInboxes = () => { }
 }) => {
+
+    function deletarChamado() {
+        const chamadosFiltrados = mockChamados.filter(
+            (chamado) => chamado.id !== mockInfo.id
+        )
+
+        mockChamados.splice(
+            0,
+            mockChamados.length,
+            ...chamadosFiltrados
+        )
+
+        setMostrarChamado(false)
+    }
+
 
     const [mostrarChamado, setMostrarChamado] = React.useState(false)
 
@@ -250,23 +268,18 @@ const ChamadoBullet = ({
 
 
                             <div className=" flex w-7 h-7 justify-center items-center bg-pri text-black rounded-full hover:scale-105 cursor-pointer"
-                            onClick={() => {setMostrarChamado(false)}}
+                                onClick={() => { setMostrarChamado(false) }}
                             >
-                            
+
                                 <div className="">
                                     X
                                 </div>
                             </div>
-
-
                         </div>
-
 
                         <h2 className="font-bold">
                             Descrição:
                         </h2>
-
-
                         <div className="p-2 bg-fundo-razo rounded h-30">
 
                             <p className="flex font-light">
@@ -274,48 +287,37 @@ const ChamadoBullet = ({
                             </p>
 
                         </div>
-
-
                         <div className="flex flex-row justify-between">
-
                             <div className="flex flex-row gap-4 w-full">
-
                                 <p>
-                                    • {mockInfo.sala}
+                                    • Sala: {mockInfo.sala}
                                 </p>
 
                                 <p>
-                                    • {mockInfo.dispositivo}
+                                    • Máquina:{mockInfo.dispositivo}
                                 </p>
-
                             </div>
-
-
                             <div className="flex justify-end w-full">
-
                                 <p>
                                     Status: {statusInfo.nome}
                                 </p>
-
                             </div>
-
                         </div>
-
 
                         <div className="flex justify-end gap-3 
                         ">
-
                             <button className="flex flex-row gap-2 justify-center items-center h-10 p-2  hover:scale-105 transition-all duration-200 rounded-sm bg-sec-verde
                             "
                             >
                                 <Bookmark />
                                 Favoritar
                             </button>
-
-                            <button className="flex flex-row gap-2 justify-center items-center h-10 p-2 hover:scale-105 transition-all duration-200 rounded-sm bg-accent ">
-                                <Trash /> Enviar a Lixeira
+                            <button
+                                className="flex flex-row gap-2 cursor-pointer justify-center items-center h-10 p-2 hover:scale-105 transition-all duration-200 rounded-sm bg-accent"
+                                oonClick={deletarChamado}
+                            >
+                                <Trash /> Enviar à Lixeira
                             </button>
-
                             <button
                                 className={`h-10 p-2 hover:scale-105 transition-all duration-200 rounded-sm bg-${proxStatusInfo.cor}`}
                             >
@@ -323,13 +325,9 @@ const ChamadoBullet = ({
                             </button>
 
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </>
     )
 }

@@ -20,9 +20,7 @@ const Filtros = () => {
     <div className="w-full flex flex-col px-4 text-pri">
 
       {/*Abrir e fechar o Filtro*/}
-      <button
-        onClick={() => setAberto(!aberto)}
-        className="w-full flex items-center justify-between py-2 mb-4 border-b border-borda/30 cursor-pointer hover:opacity-80 transition-opacity">
+      <button  onClick={() => setAberto(!aberto)}  className="w-full flex items-center justify-between py-2 mb-4 border-b border-borda/30 cursor-pointer hover:opacity-80 transition-opacity">
 
         <div className="flex-1 h-0.5 bg-borda/30 rounded-2xl"></div>
 

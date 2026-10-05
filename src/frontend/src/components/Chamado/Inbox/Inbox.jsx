@@ -15,6 +15,7 @@ import ChamadoBullet from "./ChamadoBullet"
 import { Link } from "react-router-dom"
 
 const Inbox = ({ collapsed, setCollapsed }) => {
+
     const [checkedInboxes, setCheckedInboxes] = React.useState([])
 
     const [chamados, setChamados] = React.useState(mockChamados)
@@ -43,9 +44,8 @@ const Inbox = ({ collapsed, setCollapsed }) => {
             />
 
             <div
-                className={`${
-                    !collapsed ? "ml-20" : "ml-0"
-                } transition-all duration-300`}
+                className={`${!collapsed ? "ml-20" : "ml-0"
+                    } transition-all duration-300`}
             >
                 <aside className="ml-5 min-h-screen max-w-sm bg-fundo-fundo border border-borda rounded-r-3xl flex flex-col items-center pt-8 pb-8 gap-4 overflow-y-auto">
 
@@ -57,7 +57,7 @@ const Inbox = ({ collapsed, setCollapsed }) => {
                             >
                                 Escrever
                             </button>
-                        
+
                         </div>
                     </Link>
 
@@ -112,19 +112,22 @@ const Inbox = ({ collapsed, setCollapsed }) => {
                             />
                         </div>
 
+                       <div className="w-70 border-b border-borda/30" />
+
                         <div className="flex flex-row justify-between text-2xl text-pri gap-2">
                             <label htmlFor="dataPor">
                                 Por:
                             </label>
 
                             <input
-                                id="dataPor"
-                                className="flex uppercase text-sm p-2 pr-7 pl-7 justify-between text-pri bg-fundo-razo"
+                                id="userPor"
+                                className="flex w-44.25 text-center uppercase text-sm p-2 pr-7 pl-7 justify-between text-pri bg-fundo-razo"
                                 type="date"
+                                placeholder="Usuário"
                             />
                         </div>
 
-                        <div className="w-80 border-b border-borda/30" />
+
                     </div>
 
                 </aside>
@@ -139,25 +142,18 @@ const Inbox = ({ collapsed, setCollapsed }) => {
                         <LayoutUsuario />
 
                         <div className="flex flex-row justify-center items-center h-20 gap-2 px-2">
-
                             <span className="flex-1 h-1 w-70 bg-borda rounded-lg" />
-
                             <img
                                 className="w-12 opacity-30 hover:opacity-100 transition-opacity"
                                 src={vector}
                                 alt="Icone"
                             />
-
                             <p className="font-semibold tracking-wide text-pri text-4xl">
                                 Inbox
                             </p>
-
                             <span className="flex-1 h-1 w-60 bg-borda rounded-lg" />
-
                         </div>
-
                     </header>
-
                 </div>
 
                 <div
@@ -172,6 +168,7 @@ const Inbox = ({ collapsed, setCollapsed }) => {
                             mockInfo={item}
                             checkedInboxes={checkedInboxes}
                             setCheckedInboxes={setCheckedInboxes}
+
                         />
                     ))}
 
