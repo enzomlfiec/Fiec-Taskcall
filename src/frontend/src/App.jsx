@@ -6,6 +6,7 @@ import TelaPrincipal from "./components/TelaPrincipal";
 import Registro from "./components/Registro";
 import PageNotFound from "./components/PageNotFound";
 import React from "react";
+import Configuracoes from "./components/Configuracoes";
 
 {/* Rotas */ }
 import { Routes, Route } from "react-router-dom";
@@ -39,13 +40,17 @@ function App() {
             setCollapsed={setCollapsed}
           />} />
 
-          <Route path="*" element={<PageNotFound />} />
 
+         <Route  path="/configuracoes" element={<Configuracoes
+         collapsed={collapsed}
+         setCollapsed={setCollapsed}
+         />}/>
+
+         <Route path="*" element={<PageNotFound />} />
+          
           {/* Futuras rotas de chamado, usuário e configurações
 
          <Route  path="/chamados" element={<h1 className="text-pri">Chamados</h1>}/>
-
-         <Route  path="/configuracoes" element={<h1 className="text-pri">Configurações</h1>}/>
 
           <Route path="/usuario "element={<h1 className="text-pri">Usuário</h1>} />
        */}

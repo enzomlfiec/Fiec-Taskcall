@@ -1,5 +1,5 @@
 import SideBar from "../../SideBar"
-import Filtros from "../../Filtros"
+import Filtros from "./Filtros"
 import LayoutUsuario from "../../LayoutUsuario"
 
 import mockChamados from "../../../assets/scripts/mock/mockChamados"
