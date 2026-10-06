@@ -1,5 +1,5 @@
-import LayoutUsuario from "./LayoutUsuario"
-import SideBar from "./SideBar"
+import LayoutUsuario from "../components/LayoutUsuario"
+import SideBar from "../components/SideBar"
 
 
 const Configuracoes = ({collapsed, setCollapsed}) => {
@@ -12,6 +12,10 @@ const Configuracoes = ({collapsed, setCollapsed}) => {
                 setCollapsed={setCollapsed}
             />
            </div>
+
+            <div className="flex-1 min-h-screen bg-white">
+                <LayoutUsuario />
+            </div>
         </div>
     )
 }

@@ -1,11 +1,8 @@
 import { useState } from "react";
 
-const Filtros = () => {
+const Filtros = ({ filtrosSelecionados, setFiltrosSelecionados }) => {
   //Aberta (true) fechada (false)
   const [aberto, setAberto] = useState(true);
-
-  const [fechado, setFechado] = useState(false)
-
 
   const tiposChamados = [
     { id: "todos", label: "Todos os Chamados", corCheck: "accent", bg: "bg-fundo-razo" },
@@ -15,6 +12,23 @@ const Filtros = () => {
     { id: "urgentes", label: "Chamados Urgentes", corCheck: "sec-vermelho", bg: "bg-sec-vermelho/10 border border-sec-vermelho/30 text-sec-vermelho" },
     { id: "resolvidos", label: "Resolvidos", corCheck: "sec-verde", bg: "bg-sec-verde/10 border border-sec-verde/30 text-sec-verde" },
   ];
+
+  function handleFiltros (id) {
+    if (id === "todos") {
+      setFiltrosSelecionados([]);
+      return;
+    } 
+     if (filtrosSelecionados.includes(id)) {
+      setFiltrosSelecionados(
+        filtrosSelecionados.filter((filtro) => filtro !== id)
+      )
+     } else {
+      setFiltrosSelecionados([
+        ...filtrosSelecionados,
+        id
+      ])
+     }
+  }
 
   return (
     <div className="w-full flex flex-col px-4 text-pri">
@@ -53,7 +67,11 @@ const Filtros = () => {
             {/*Div clicável*/}
             <input
               type="checkbox"
-              name={item.id}
+              checked={
+                item.id === "todos" 
+                ? filtrosSelecionados.lenght === 0 : filtrosSelecionados.includes(item.id)
+              }
+              onChange={() => handleFiltros(item.id)}
               className="w-5 h-5 rounded border-borda/60 text-accent focus:ring-0 cursor-pointer stroke-sec-verde" />
             {item.label}
           </label>

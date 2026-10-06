@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import React, { useEffect } from "react";
 import userMockData from "../assets/scripts/mock/userMockData";
 import { Link } from "react-router-dom";
-import Registro from "./Registro";
+import Registro from "../components/Registro";
 import { EyeClosed } from "lucide-react";
 import { Eye } from "lucide-react";
 

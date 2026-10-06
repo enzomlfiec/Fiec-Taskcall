@@ -17,12 +17,14 @@ const ChamadoBullet = ({
             (chamado) => chamado.id !== mockInfo.id
         )
 
+
         mockChamados.splice(
             0,
             mockChamados.length,
             ...chamadosFiltrados
         )
 
+        setChamados(chamadosFiltrados)
         setMostrarChamado(false)
     }
 

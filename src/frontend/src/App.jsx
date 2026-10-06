@@ -1,12 +1,12 @@
-import Login from "./components/Login";
+import Login from "./pages/Login";
 import "../style.css";
-import FakeLayers from "./components/FakeLayers";
-import Inbox from "./components/Chamado/Inbox/Inbox";
-import TelaPrincipal from "./components/TelaPrincipal";
+import FakeLayers from "./pages/FakeLayers";
+import Inbox from "./pages/Inbox";
+import TelaPrincipal from "./pages/TelaPrincipal";
 import Registro from "./components/Registro";
-import PageNotFound from "./components/PageNotFound";
+import PageNotFound from "./pages/PageNotFound";
 import React from "react";
-import Configuracoes from "./components/Configuracoes";
+import Configuracoes from "./pages/Configuracoes";
 
 {/* Rotas */ }
 import { Routes, Route } from "react-router-dom";

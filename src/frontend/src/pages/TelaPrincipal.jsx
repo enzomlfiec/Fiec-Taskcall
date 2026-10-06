@@ -1,8 +1,8 @@
 import React from "react";
-import SideBar from "./SideBar";
-import LayoutUsuario from "./LayoutUsuario";
-import ChamadosResumos from "./ChamadosResumos";
-import ChamadoBullet from "./Chamado/Inbox/ChamadoBullet";
+import SideBar from "../components/SideBar";
+import LayoutUsuario from "../components/LayoutUsuario";
+import ChamadosResumos from "../components/ChamadosResumos";
+import ChamadoBullet from "../components/Chamado/Inbox/ChamadoBullet";
 import mockChamados from "../assets/scripts/mock/mockChamados";
 import { useNavigate } from "react-router-dom";
 import { Clock4, TriangleAlert, CircleEllipsis, MessageCircleWarning } from "lucide-react";
@@ -20,7 +20,7 @@ const TelaPrincipal = ({ collapsed, setCollapsed }) => {
 
                 <div className={`${!collapsed ? "ml-16 sm:ml-20" : "ml-0"} w-full min-w-0 transition-all duration-300 px-2 sm:px-4`}>
 
-                    <header className="flex flex-col gap-2 w-full m-2">
+                    <header className="flex flex-col gap-2 w-full m-1">
                         <LayoutUsuario />
 
                         <div className="flex flex-row text-pri text-lg justify-center items-center px-1 gap-2">
@@ -29,7 +29,7 @@ const TelaPrincipal = ({ collapsed, setCollapsed }) => {
                             <div className="flex h-0.5 flex-1 max-w-50 bg-borda rounded-3xl"></div>
                         </div>
 
-                        <article className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 w-full">
+                        <article className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-5 gap-2 sm:gap-3 w-full">
 
                             {/* Chamados não visualizados */}
                             <ChamadosResumos
