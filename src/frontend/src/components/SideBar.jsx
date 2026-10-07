@@ -86,10 +86,9 @@ function SideBar({ collapsed, setCollapsed }) {
         </div>
       </div>
 
-      <button id="sidebarpull"  aria-label={collapsed ? "Abrir menu lateral" : "Fechar menu lateral"} className="bg-fundo-razo text-borda font-bold select-none pt-4 pb-4 px-1 rounded-br-4xl rounded-tr-4xl text-center cursor-pointer hover:bg-borda hover:text-pri transition-all duration-300" 
+      <button id="sidebarpull"  aria-label={collapsed ? "Abrir menu lateral" : "Fechar menu lateral"} className="relative -left-2.5 hover:left-0 bg-fundo-razo text-borda font-bold select-none pt-4 pb-4 px-1 rounded-br-[100%] rounded-tr-[100%] text-center cursor-pointer hover:bg-borda hover:text-pri transition-all duration-500 z-[-1]" 
       onClick={() => setCollapsed(!collapsed)} >
         <span className={`${collapsed ? "rotate-180" : "rotate-0"} block transition-all duration-500`} >
-         
           <ChevronLeft className="w-7 h-7 sm:w-8 sm:h-8" />
         </span>
       </button>
