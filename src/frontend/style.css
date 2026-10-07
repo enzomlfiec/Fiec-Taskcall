@@ -35,6 +35,9 @@
 
     --color-debug: #ff00ff;
 
+    --animate-ping-s: ping 5s ease-out infinite;
+    --animate-ping-m: ping 2.5s ease-out infinite;
+    --animate-ping-f: ping 1s ease-out infinite;
 
 }
 
