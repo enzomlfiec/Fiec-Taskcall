@@ -18,7 +18,7 @@ function App() {
   const [collapsed, setCollapsed] = React.useState(false)
 
   return (
-    <>
+    <div className="scheme-dark">
       {
         <Routes>
 
@@ -65,7 +65,7 @@ function App() {
         </Routes>
       }
 
-    </>
+    </div>
   );
 }
 export default App;

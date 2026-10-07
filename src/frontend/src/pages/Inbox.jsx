@@ -174,7 +174,7 @@ const Inbox = ({ collapsed, setCollapsed }) => {
 
                             <input
                                 id="dataDe"
-                                className="flex uppercase text-sm p-2 pr-7 pl-7 justify-between text-pri bg-fundo-razo"
+                                className="flex rounded-md uppercase text-sm p-2 pr-7 pl-7 justify-between text-pri bg-fundo-razo"
                                 type="date"
                                 value={dataDe}
                                 onChange={(e) => setDataDe(e.target.value)}
@@ -188,7 +188,7 @@ const Inbox = ({ collapsed, setCollapsed }) => {
 
                             <input
                                 id="dataA"
-                                className="flex uppercase text-sm p-2 pr-7 pl-7 justify-between text-pri bg-fundo-razo"
+                                className="flex rounded-md uppercase text-sm p-2 pr-7 pl-7 justify-between text-pri bg-fundo-razo"
                                 type="date"
                                 value={dataA}
                                 onChange={(e) => setDataA(e.target.value)}
@@ -204,7 +204,7 @@ const Inbox = ({ collapsed, setCollapsed }) => {
 
                             <input
                                 id="userPor"
-                                className="flex w-44.25 text-center uppercase text-sm p-2 pr-7 pl-7 justify-between text-pri bg-fundo-razo"
+                                className="flex rounded-md placeholder-white/25 w-44.25 text-center  text-sm p-2 pr-7 pl-7 justify-between text-pri bg-fundo-razo"
                                 type="text"
                                 placeholder="Usuário"
                                 value={usuario}

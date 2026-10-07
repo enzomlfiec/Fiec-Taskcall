@@ -67,7 +67,7 @@ function SideBar({ collapsed, setCollapsed }) {
 
           <Link to="/configuracoes">
             <img
-              className="w-8 sm:w-10 opacity-30 hover:opacity-50 transition-opacity"
+              className=" w-8 sm:w-10 opacity-30 hover:opacity-50 transition-opacity"
               src={configuracao}
               alt="Ícone Configurações"
             />
@@ -77,7 +77,7 @@ function SideBar({ collapsed, setCollapsed }) {
 
           <Link to="/usuario">
             <img
-              className="w-8 sm:w-10 opacity-30 hover:opacity-50 transition-opacity"
+              className="rounded-full w-8 sm:w-10 opacity-30 hover:opacity-50 transition-opacity"
               src={perfil}
               alt="Ícone Usuário"
             />

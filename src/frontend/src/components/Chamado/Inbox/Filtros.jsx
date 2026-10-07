@@ -13,28 +13,28 @@ const Filtros = ({ filtrosSelecionados, setFiltrosSelecionados }) => {
     { id: "resolvidos", label: "Resolvidos", corCheck: "sec-verde", bg: "bg-sec-verde/10 border border-sec-verde/30 text-sec-verde" },
   ];
 
-  function handleFiltros (id) {
+  function handleFiltros(id) {
     if (id === "todos") {
       setFiltrosSelecionados([]);
       return;
-    } 
-     if (filtrosSelecionados.includes(id)) {
+    }
+    if (filtrosSelecionados.includes(id)) {
       setFiltrosSelecionados(
         filtrosSelecionados.filter((filtro) => filtro !== id)
       )
-     } else {
+    } else {
       setFiltrosSelecionados([
         ...filtrosSelecionados,
         id
       ])
-     }
+    }
   }
 
   return (
     <div className="w-full flex flex-col px-4 text-pri">
 
       {/*Abrir e fechar o Filtro*/}
-      <button  onClick={() => setAberto(!aberto)}  className="w-full flex items-center justify-between py-2 mb-4 border-b border-borda/30 cursor-pointer hover:opacity-80 transition-opacity">
+      <button onClick={() => setAberto(!aberto)} className="w-full flex items-center justify-between py-2 mb-4 border-b border-borda/30 cursor-pointer hover:opacity-80 transition-opacity">
 
         <div className="flex-1 h-0.5 bg-borda/30 rounded-2xl"></div>
 
@@ -68,11 +68,11 @@ const Filtros = ({ filtrosSelecionados, setFiltrosSelecionados }) => {
             <input
               type="checkbox"
               checked={
-                item.id === "todos" 
-                ? filtrosSelecionados.lenght === 0 : filtrosSelecionados.includes(item.id)
+                item.id === "todos"
+                  ? filtrosSelecionados.lenght === 0 : filtrosSelecionados.includes(item.id)
               }
               onChange={() => handleFiltros(item.id)}
-              className="w-5 h-5 rounded border-borda/60 text-accent focus:ring-0 cursor-pointer stroke-sec-verde" />
+              className="w-5 h-5 border-2 checkbox rounded border-borda/60 text-accent focus:ring-0 cursor-pointer stroke-sec-verde" />
             {item.label}
           </label>
         ))}

@@ -77,7 +77,7 @@ const TelaPrincipal = ({ collapsed, setCollapsed }) => {
                         </div>
 
                         <div className="relative w-full flex flex-col items-center">
-                            <div className=" relative w-full h-[420px] sm:h-115 md:h-[500px] lg:h-[30vw] lg:max-h-[500px] overflow-hidden ">
+                            <div className=" relative w-full h-105 sm:h-115 md:h-125 lg:h-[30vw] lg:max-h-125 overflow-hidden ">
                                 <div draggable={false} className="select-none flex flex-col gap-3 w-full pointer-events-none">
                                     {
                                         Array.from({ length: 12 }).map((_, index) => (
@@ -95,7 +95,7 @@ const TelaPrincipal = ({ collapsed, setCollapsed }) => {
 
                             <button
                                 onClick={() => navigate("/inbox")}
-                                className=" text-pri botao bg-accent w-32 pt-2 pb-5 text-center transition-all hover:brightness-70 duration-500 mt-[-35px]  z-10 "
+                                className=" text-pri botao bg-accent w-32 pt-2 pb-5 text-center transition-all hover:brightness-70 duration-500 -mt-8.75  z-10 "
                             >
                                 Ver tudo
                             </button>

@@ -131,35 +131,34 @@ function InfoUsuario({ collapsed, setCollapsed }) {
                         type="button"
                         className="group w-full flex items-center  justify-between gap-5 mt-5 p-5 text-left bg-fundo-medio/80 border-2 border-borda/30 rounded-3xl text-pri cursor-pointer transition-all duration-300 hover:brightness-125 hover:border-borda/60"
                     >
-                        <div className="flex flex-row gap-5">
+                        <Link to="/configuracoes">
+                            <div className="flex flex-row gap-5">
 
-                            <div className="flex items-center justify-center w-12 h-12 shrink-0 rounded-xl bg-accent transition-all duration-300 group-hover:opacity-50">
-                                <Settings className="w-7 h-7 transition-transform duration-300 group-hover:rotate-90" />
-                            </div>
-                            <Link to="/configuracoes">
+                                <div className="flex items-center justify-center w-12 h-12 shrink-0 rounded-xl bg-accent transition-all duration-300 group-hover:opacity-50">
+                                    <Settings className="w-7 h-7 transition-transform duration-300 group-hover:rotate-90" />
+                                </div>
                                 <div className="flex flex-col flex-1">
                                     <span className="text-lg font-bold">Configurações</span>
                                     <span className="text-sec text-sm">
                                         Ajuste suas configurações de conta e sistema.
                                     </span>
                                 </div>
-                            </Link>
-                        </div>
+                            </div>
+                        </Link>
                         <ChevronRight className="w-7 h-7 text-borda transition-all duration-300 group-hover:text-pri group-hover:translate-x-1" />
                     </button>
                 </main>
-            </div>
+            </div >
             <div
                 id="floatingWindowUserImage"
-                className={`fixed inset-0 z-50 flex items-center justify-center bg-black/50 transition-[opacity,backdrop-filter] duration-500 ${
-                    floating ? "opacity-100 pointer-events-auto backdrop-blur-[3px]" : "pointer-events-none opacity-0"
-                }`}
+                className={`fixed inset-0 z-50 flex items-center justify-center bg-black/50 transition-[opacity,backdrop-filter] duration-500 ${floating ? "opacity-100 pointer-events-auto backdrop-blur-[3px]" : "pointer-events-none opacity-0"
+                    }`}
                 onClick={() => setFloating(false)}
             >
                 <div className="flex flex-col items-end">
                     <button
                         type="button"
-                        className="mb-2 flex items-center justify-center w-8 h-8 rounded-full bg-fundo-razo/50 text-white hover:brightness-150 cursor-pointer"
+                        className="mb-2 relative left-10 flex items-center justify-center w-8 h-8 rounded-full bg-fundo-razo/50 text-white hover:brightness-150 cursor-pointer"
                         onClick={() => setFloating(false)}
                         aria-label="Fechar imagem do perfil"
                     >

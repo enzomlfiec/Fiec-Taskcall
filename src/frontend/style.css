@@ -105,3 +105,17 @@
     background: var(--color-pri);
     opacity: 100%;
 }
+
+.checkbox {
+    appearance: none;
+    border-color: var(--color-borda);
+    border-radius: 25%;
+    background-color: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.checkbox:checked {
+    background-color: var(--color-pri);
+    border-color: var(--color-pri);
+}
