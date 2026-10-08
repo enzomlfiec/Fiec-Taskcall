@@ -10,7 +10,7 @@ let mockChamados = [
         dispositivo: "Máquina 25",
         data: "5, Maio 2026 - 14:28",
         lixeira: false,
-        status: 2
+        status: 4
     },
     {
         id: 2,

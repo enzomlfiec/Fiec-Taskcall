@@ -1,6 +1,7 @@
-import { Bookmark } from "lucide-react"
+import { Bookmark, EllipsisIcon } from "lucide-react"
 import React from "react"
 import { Trash } from "lucide-react"
+import { Clock4, TriangleAlert, CircleEllipsis, CircleAlert, CircleCheck, } from "lucide-react";
 
 const ChamadoBullet = ({
     index,
@@ -11,7 +12,6 @@ const ChamadoBullet = ({
     checkedInboxes = [],
     setCheckedInboxes = () => { }
 }) => {
-
     function deletarChamado() {
         const chamadosFiltrados = mockChamados.filter(
             (chamado) => chamado.id !== mockInfo.id
@@ -34,13 +34,15 @@ const ChamadoBullet = ({
     const [proxStatusInfo, setProxStatusInfo] = React.useState({
         StatusID: 2,
         cor: "sec-verde",
-        nome: "Insira aqui o nome do status"
+        nome: "Insira aqui o nome do status",
+        icone: "EllipsisIcon"
     })
 
     const [statusInfo, setStatusInfo] = React.useState({
         StatusID: 2,
         cor: "sec-verde",
-        nome: "Insira aqui o nome do status."
+        nome: "Insira aqui o nome do status.",
+        icone: "EllipsisIcon"
     })
 
     React.useEffect(() => {
@@ -50,13 +52,15 @@ const ChamadoBullet = ({
             setStatusInfo({
                 StatusID: 0,
                 cor: "sec-amarelo",
-                nome: "Não visualizado."
+                nome: "Não visualizado.",
+                icone: CircleAlert,
             })
 
             setProxStatusInfo({
                 StatusID: 1,
                 cor: "sec-azul",
-                nome: "Em progresso."
+                nome: "Em progresso.",
+                icone: Clock4,
             })
 
         } else if (mockInfo.status == 1) {
@@ -64,13 +68,15 @@ const ChamadoBullet = ({
             setStatusInfo({
                 StatusID: 1,
                 cor: "sec-azul",
-                nome: "Em progresso."
+                nome: "Em progresso.",
+                icone: Clock4,
             })
 
             setProxStatusInfo({
                 StatusID: 2,
                 cor: "sec-verde",
-                nome: "Resolvido."
+                nome: "Resolvido.",
+                icone: CircleCheck,
             })
 
         } else if (mockInfo.status == 2) {
@@ -78,13 +84,15 @@ const ChamadoBullet = ({
             setStatusInfo({
                 StatusID: 2,
                 cor: "sec-verde",
-                nome: "Resolvido."
+                nome: "Resolvido.",
+                icone: CircleCheck,
             })
 
             setProxStatusInfo({
                 StatusID: 3,
                 cor: "sec-amarelo",
-                nome: "Em analise."
+                nome: "Em análise.",
+                icone: CircleEllipsis,
             })
 
         } else if (mockInfo.status == 3) {
@@ -92,33 +100,35 @@ const ChamadoBullet = ({
             setStatusInfo({
                 StatusID: 3,
                 cor: "borda",
-                nome: "Em analise."
+                nome: "Em análise.",
+                icone: CircleEllipsis,
             })
 
             setProxStatusInfo({
                 StatusID: 4,
                 cor: "sec-vermelho",
-                nome: "Urgencia."
+                nome: "Urgência.",
+                icone: TriangleAlert,
             })
 
         } else if (mockInfo.status == 4) {
-
             setStatusInfo({
                 StatusID: 4,
                 cor: "sec-vermelho",
-                nome: "Urgencia."
+                nome: "Urgência.",
+                icone: TriangleAlert
             })
 
             setProxStatusInfo({
                 StatusID: 1,
                 cor: "sec-azul",
-                nome: "Em progresso."
+                nome: "Em progresso.",
+                icone: Clock4,
             })
         }
-
     }, [mockInfo.status])
 
-
+    const IconeStatus = statusInfo.icone;
     const checkado = checkedInboxes.includes(index)
 
     function handleCheck() {
@@ -210,15 +220,18 @@ const ChamadoBullet = ({
 
                 </div>
 
-                <div
+                <span
                     id="ChamadoStatus"
                     className={`
                         h-6 w-6 shrink-0 rounded-full
                         bg-${statusInfo.cor}
                         drop-shadow-sm drop-shadow-black/25
                         shadow-[inset_0_5px_0_0px_#00000050]
+                        brightness-90
                     `}
-                />
+                >
+                    <IconeStatus className={`p-0.5 opacity-100 text-white text-shadow-xl `} />
+                </span>
 
             </div>
 

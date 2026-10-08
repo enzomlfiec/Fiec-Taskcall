@@ -26,12 +26,12 @@ function CriacaoChamado() {
 
         const newEntry = {
             id: mockChamados.length + 1,
-            nome:"Usuário S1337",
+            nome:"Usuário Debug",
             salvo: false,
             sala: campoSala,
             descricao: campoDescricao,
             categoria: campoCategoria,
-            cargo: "Suporte de TI",
+            cargo: "Supremo",
             dispositivo: campoDispositivo,
             data:
                 dia + "/" +

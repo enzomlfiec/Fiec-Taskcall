@@ -23,15 +23,15 @@ const LayoutUsuario = () => {
                 <div className="flex flex-col gap-1">
 
                     <span className="h-7 w-57 px-2 bg-fundo-razo rounded-md text-pri font-medium text-lg flex items-center">
-                        Usuário S1337
+                        Usuário Debug
                     </span>
 
                     <div className="flex items-center gap-1">
 
                         <Cpu className="text-borda w-4 h-4" />
 
-                        <div className="h-6 w-30 px-2 bg-fundo-medio text-borda text-sm rounded-md border border-borda flex items-center">
-                            Suporte de TI
+                        <div className="h-6 w-full px-2 bg-fundo-medio text-borda text-sm rounded-md border border-borda flex items-center">
+                            Supremo
                         </div>
 
                     </div>

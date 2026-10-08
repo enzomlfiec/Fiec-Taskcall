@@ -8,10 +8,9 @@ function InfoUsuario({ collapsed, setCollapsed }) {
     const [floating, setFloating] = React.useState(false)
     const [foto, setFoto] = React.useState(perfil)
     const dadosPessoaisMock = [
-        { label: "Nome", value: "Nome do Usuário" },
-        { label: "Matrícula", value: "S1337" },
-        { label: "E-mail", value: "natanbobao@fiec.edu.br" },
-        { label: "Telefone", value: "(19) 99999-9999" },
+        { label: "Nome", value: "Usuário Debug" },
+        { label: "RM", value: "1337" },
+        { label: "E-mail", value: "user_debug@fiec.edu.br" },
     ];
     const informacoesContaMock = [
         { label: "Tipo de acesso", value: "Debug" },
@@ -50,7 +49,7 @@ function InfoUsuario({ collapsed, setCollapsed }) {
                         </div>
 
                         <div className="flex flex-col gap-2 flex-1 text-center sm:text-left">
-                            <h2 className="text-pri text-2xl font-bold">Usuário S1337</h2>
+                            <h2 className="text-pri text-2xl font-bold">Usuário Debug</h2>
                             <p className="text-sec text-lg">Técnico em Informática</p>
 
                             <div className="flex justify-center sm:justify-start mt-1">
@@ -88,7 +87,7 @@ function InfoUsuario({ collapsed, setCollapsed }) {
                                 {dadosPessoaisMock.map((item) => (
                                     <div
                                         key={item.label}
-                                        className={`flex justify-between items-center py-4 ${item.label !== "Telefone" ? "border-b border-borda/20" : ""
+                                        className={`flex justify-between items-center py-4 border-b border-borda/50
                                             }`}
                                     >
                                         <span className="text-sec">{item.label}</span>
