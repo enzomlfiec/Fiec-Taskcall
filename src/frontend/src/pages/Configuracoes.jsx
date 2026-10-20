@@ -25,7 +25,6 @@ function Configuracoes({ collapsed, setCollapsed }) {
     const [isConected, setIsConected] = React.useState(true);
 
     const ultimaAtualizacao = new Date().toLocaleDateString("pt-BR");
-
     const temas = [
         { label: "Claro", value: true },
         { label: "Escuro", value: false },
