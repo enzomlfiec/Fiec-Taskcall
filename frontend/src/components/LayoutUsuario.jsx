@@ -1,0 +1,53 @@
+import { Cpu } from "lucide-react";
+import perfil from "../assets/img/perfil.png";
+import React from "react";
+// import Cage from "../assets/img/cage.png";
+
+
+
+const LayoutUsuario = () => {
+    const [foto, setFoto] = React.useState(perfil)
+    const [usuario] = React.useState(() => {
+        try {
+            return JSON.parse(localStorage.getItem("userInfo") || "{}")
+        } catch {
+            return {}
+        }
+    })
+    return (
+        <div className="flex justify-start w-90 m-1 p-1  items-start">
+
+
+            <div className="flex items-center gap-2">
+
+                <a href="">
+                    <img
+                        className="w-16 h-16 rounded-full opacity-80 hover:opacity-100 transition-opacity"
+                        src={foto}
+                        alt="Ícone do usuário"/>
+                </a>
+
+                <div className="flex flex-col gap-1">
+
+                    <span className="h-7 w-57 px-2 bg-fundo-razo rounded-md text-pri font-medium text-lg flex items-center">
+                        {usuario.name || "Usuário"}
+                    </span>
+
+                    <div className="flex items-center gap-1">
+
+                        <Cpu className="text-borda w-4 h-4" />
+
+                        <div className="h-6 w-30 px-2 bg-fundo-medio text-borda text-sm rounded-md border border-borda flex items-center">
+                            {usuario.cargo || "Aluno"}
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    );
+};
+
+export default LayoutUsuario;
