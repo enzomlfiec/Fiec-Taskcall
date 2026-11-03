@@ -4,13 +4,12 @@ import { Link, useNavigate } from "react-router-dom"
 import mockChamados from "../../../assets/scripts/mock/mockChamados"
 
 function CriacaoChamado() {
-    // const [campoTitulo, setTitulo] = React.useState("")
+    const [campoTitulo, setTitulo] = React.useState("")
     const [campoSala, setSala] = React.useState("")
     const [campoDescricao, setDescricao] = React.useState("")
     const [campoCategoria, setCategoria] = React.useState("")
     const [campoCargo, setCargo] = React.useState("")
     const [campoDispositivo, setDispositivo] = React.useState("")
-
     const navigate = useNavigate()
 
     function handleSubmit(e) {
@@ -28,6 +27,7 @@ function CriacaoChamado() {
             id: mockChamados.length + 1,
             nome:"Usuário Debug",
             salvo: false,
+            titulo: campoTitulo,
             sala: campoSala,
             descricao: campoDescricao,
             categoria: campoCategoria,
@@ -74,7 +74,7 @@ function CriacaoChamado() {
 
                     {/* Titulo */}
 
-                    {/* <div className="flex w-full flex-col gap-2">
+                 <div className="flex w-full flex-col gap-2">
                         <label
                             htmlFor="Titulo"
                             className="font-bold text-pri"
@@ -94,7 +94,7 @@ function CriacaoChamado() {
                             placeholder="Insira seu Titulo"
                             className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-pri placeholder:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                         />
-                    </div> */}
+                    </div> 
 
 
                     {/* SALA */}

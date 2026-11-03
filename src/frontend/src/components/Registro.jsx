@@ -73,7 +73,7 @@ function Registro() {
                     <form onSubmit={handleSubmit} className="relative flex flex-col items-center text-pri bg-fundo-medio/20 backdrop-blur-sm p-20 pr-30 pl-30 gap-3 rounded-4xl border-sec border-2">
                         <div className="flex flex-col gap-4 items-baseline">
                             <div className="flex items-center justify-center">
-                                <h1 className="select-none text-3xl font-bold">Cadastrar</h1>
+                                <h1 className="select-none text-3xl font-bold">Cadastro</h1>
                             </div>
                             <div>
                                 <label className="font-bold">Nome</label>
@@ -87,7 +87,7 @@ function Registro() {
                                 placeholder="*Insira o nome do usuário."
                             />
                             <div>
-                                <label className="font-bold">RM</label>
+                                <label className="font-bold">Nº de Identificação</label>
                                 <span className="text-accent font-bold select-none"> * </span>
                             </div>
                             <input
@@ -95,7 +95,7 @@ function Registro() {
                                 onChange={(e) => setCampoRM(e.target.value)}
                                 className="text-pri bg-fundo-profundo font-medium w-lg rounded-md p-2"
                                 type="number"
-                                placeholder="*Insira o código RM do usuário."
+                                placeholder="*Insira o Nº de Identificação do usuário."
                             />
                             <div>
                                 <label className="font-bold">Email</label>
@@ -105,7 +105,7 @@ function Registro() {
                                 value={campoEmail}
                                 onChange={(e) => setCampoEmail(e.target.value)}
                                 className="text-pri bg-fundo-profundo font-medium w-lg rounded-md p-2"
-                                type="text"
+                                type="email"
                                 placeholder="*Insira o Email do usuário."
                             />
 

@@ -22,7 +22,7 @@ function Configuracoes({ collapsed, setCollapsed }) {
     const [symbolStatus, setSymbolStatus] = React.useState(() => ELSD.read("symbolStatus", true));
     const [simpleAnims, setSimpleAnims] = React.useState(() => ELSD.read("simpleAnims", false));
     const [fontSize, setFontSize] = React.useState(() => ELSD.read("fontSize", "default"));
-    const [isConected, setIsConected] = React.useState(true);
+    const [isConected, setIsConected] = React.useState(false);
 
     const ultimaAtualizacao = new Date().toLocaleDateString("pt-BR");
     const temas = [

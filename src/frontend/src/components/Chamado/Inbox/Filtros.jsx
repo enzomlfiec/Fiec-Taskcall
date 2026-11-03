@@ -69,7 +69,7 @@ const Filtros = ({ filtrosSelecionados, setFiltrosSelecionados }) => {
               type="checkbox"
               checked={
                 item.id === "todos"
-                  ? filtrosSelecionados.lenght === 0 : filtrosSelecionados.includes(item.id)
+                  ? filtrosSelecionados.length === 0 : filtrosSelecionados.includes(item.id)
               }
               onChange={() => handleFiltros(item.id)}
               className="w-5 h-5 border-2 checkbox rounded border-borda/60 text-accent focus:ring-0 cursor-pointer stroke-sec-verde" />

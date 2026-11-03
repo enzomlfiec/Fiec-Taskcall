@@ -60,7 +60,7 @@ function Login() {
                             value={login}
                             onChange={(e) => setLogin(e.target.value)}
                             className="text-pri bg-fundo-profundo font-medium w-lg rounded-md p-2"
-                            type="text"
+                            type="email"
                             placeholder="*Insira seu código RM ou Email."
                         />
 
@@ -71,7 +71,7 @@ function Login() {
                         <div className="flex flex-row items-center justify-center gap-2">
                             <input value={senha}
                                 onChange={(e) => setSenha(e.target.value)}
-                                className="text-pri bg-fundo-profundo font-medium w-lg rounded-md p-2"
+                                className="text-pri bg-fundo-profundo font-medium w-lg rounded-md p-2 [&::-ms-reveal]:hidden [&::-webkit-password-toggle-button]:hidden"
                                 type={passtype}
                                 placeholder="*Insira a senha vinculada ao perfil."
                             />
@@ -97,7 +97,7 @@ function Login() {
                     <p>
                         Não tem uma conta?
                         <Link to="/registro" className="text-accent ml-2 hover:underline">
-                            Cadastre-se
+                            Cadastrar
                         </Link>
                     </p>
                     {/* onClick={() => navigate("/tela-principal")} */}
