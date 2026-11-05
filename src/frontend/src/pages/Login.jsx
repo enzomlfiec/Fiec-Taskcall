@@ -53,7 +53,7 @@ function Login() {
                             <h1 className="select-none text-3xl font-bold">Entrar</h1>
                         </div>
                         <div>
-                            <label className="font-bold">RM/Email</label>
+                            <label className="font-bold">Email</label>
                             <span className="text-accent font-bold select-none"> * </span>
                         </div>
                         <input
@@ -74,6 +74,7 @@ function Login() {
                                 className="text-pri bg-fundo-profundo font-medium w-lg rounded-md p-2 [&::-ms-reveal]:hidden [&::-webkit-password-toggle-button]:hidden"
                                 type={passtype}
                                 placeholder="*Insira a senha vinculada ao perfil."
+                                minLength={8}
                             />
                             <span
                                 className="cursor-pointer"

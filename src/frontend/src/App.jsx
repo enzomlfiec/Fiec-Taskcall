@@ -8,17 +8,18 @@ import PageNotFound from "./pages/PageNotFound";
 import React from "react";
 import Configuracoes from "./pages/Configuracoes";
 import InfoUsuario from "./components/Usuario/InfoUsuario";
+import ELSD from "./assets/scripts/ELSD";
 
 {/* Rotas */ }
 import { Routes, Route } from "react-router-dom";
 import CriacaoChamado from "./components/Chamado/Inbox/CriacaoChamado";
 
 function App() {
-
+  const [simpleAnims,setSimpleAnims] = React.useState(() => ELSD.read("simpleAnims", "false"));
   const [collapsed, setCollapsed] = React.useState(false)
 
   return (
-    <div className="scheme-dark">
+    <div className={`scheme-dark ${simpleAnims? "[&_*]:duration-0 [&_*]:transition-none" : ""}`}>
       {
         <Routes>
 

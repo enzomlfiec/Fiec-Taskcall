@@ -208,7 +208,7 @@ const ChamadoBullet = ({
 
                     <div className="hidden min-w-0 flex-1 border-r-2 border-borda/30 px-3 lg:block">
                         <p className="truncate text-pri">
-                            {mockInfo.dispositivo}
+                            {mockInfo.titulo}
                         </p>
                     </div>
 

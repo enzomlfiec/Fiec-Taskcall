@@ -119,6 +119,7 @@ function Registro() {
                                     className="text-pri bg-fundo-profundo font-medium w-lg rounded-md p-2"
                                     type={passtype}
                                     placeholder="*Insira a senha vinculada ao perfil."
+                                    minLength={8}
                                 />
                                 <span
                                     className="cursor-pointer"
