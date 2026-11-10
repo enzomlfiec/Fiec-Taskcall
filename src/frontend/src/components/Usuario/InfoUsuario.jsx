@@ -21,7 +21,7 @@ function InfoUsuario({ collapsed, setCollapsed }) {
 
     return (
         <>
-            <div className="flex z-10 min-h-screen w-full bg-[url(public/assets/login2.png)] bg-cover bg-center justify-center items-stretch overflow-x-hidden overflow-y-auto">
+            <div className="flex z-10 min-h-screen w-full bg-login bg-cover bg-center justify-center items-stretch overflow-x-hidden overflow-y-auto">
                 <SideBar collapsed={collapsed} setCollapsed={setCollapsed} />
                 <main
                     className={`w-full min-w-0 min-h-screen px-4 sm:px-6 lg:px-10 py-8 transition-all duration-300 ${!collapsed ? "ml-16 sm:ml-20" : "ml-0"

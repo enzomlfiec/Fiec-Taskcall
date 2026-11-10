@@ -15,11 +15,33 @@ import { Routes, Route } from "react-router-dom";
 import CriacaoChamado from "./components/Chamado/Inbox/CriacaoChamado";
 
 function App() {
-  const [simpleAnims,setSimpleAnims] = React.useState(() => ELSD.read("simpleAnims", "false"));
-  const [collapsed, setCollapsed] = React.useState(false)
+  const [simpleAnims, setSimpleAnims] = React.useState(() => ELSD.read("simpleAnims", "false"));
+  const [corTema, setCorTema] = React.useState(() => ELSD.read("corTema", "system"));
+  const [collapsed, setCollapsed] = React.useState(false);
+
+  // Modo claro ativo se corTema for true (ou se for "system" e o dispositivo preferir tema claro)
+  const isClaro = corTema === true || (corTema === "system" && window.matchMedia?.("(prefers-color-scheme: light)")?.matches);
+
+  // Atualiza classe no <html> para garantir propagação global
+  React.useEffect(() => {
+    if (isClaro) {
+      document.documentElement.classList.add("claro");
+    } else {
+      document.documentElement.classList.remove("claro");
+    }
+  }, [isClaro]);
+
+  // Sincroniza caso o localStorage mude em outra aba/janela
+  React.useEffect(() => {
+    const handleStorage = () => {
+      setCorTema(ELSD.read("corTema", "system"));
+    };
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
+  }, []);
 
   return (
-    <div className={`scheme-dark ${simpleAnims? "[&_*]:duration-0 [&_*]:transition-none" : ""}`}>
+    <div className={`${isClaro ? "claro scheme-light" : "scheme-dark"} min-h-screen ${simpleAnims ? "**:duration-0 **:transition-none" : ""}`}>
       {
         <Routes>
 
@@ -46,6 +68,8 @@ function App() {
           <Route path="/configuracoes" element={<Configuracoes
             collapsed={collapsed}
             setCollapsed={setCollapsed}
+            corTema={corTema}
+            setCorTema={setCorTema}
           />} />
 
           <Route path="*" element={<PageNotFound />} />

@@ -1,11 +1,9 @@
 import taskcall from "../assets/img/taskcall.png";
 import home from "../assets/img/home.png";
-import vector from "../assets/img/vector.png";
-import vector2 from "../assets/img/vector2.png";
 import configuracao from "../assets/img/configuracao.png";
 import perfil from "../assets/img/perfil.png";
 import React from "react";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Inbox, Monitor } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 function SideBar({ collapsed, setCollapsed }) {
 
@@ -19,7 +17,7 @@ function SideBar({ collapsed, setCollapsed }) {
         <div className="flex flex-col items-center gap-4 sm:gap-5 h-full justify-between">
 
           <img
-            className="w-12 sm:w-16 opacity-100 mt-5 "
+            className="w-12 opacity-50 sm:w-16 mt-5 in-[.claro]:invert in-[.claro]:opacity-50"
             src={taskcall}
             alt="Logo Taskcall"
             title="Taskcall"
@@ -29,7 +27,7 @@ function SideBar({ collapsed, setCollapsed }) {
 
           <Link to="/tela-principal">
             <img
-              className={`w-8 sm:w-10 ${location.pathname === "/tela-principal" ? "opcaity-80" : "opacity-30"} hover:opacity-50 transition-opacity`}
+              className={`w-8 sm:w-10 ${location.pathname === "/tela-principal" ? "opacity-80" : "opacity-30"} hover:opacity-50 transition-opacity sidebar-icon`}
               src={home}
               alt="Ícone casa - início"
               title="Tela Principal"
@@ -39,10 +37,8 @@ function SideBar({ collapsed, setCollapsed }) {
           <div className="w-8 sm:w-15 h-0.5 bg-pri opacity-30 rounded"></div>
 
           <Link to="/inbox">
-            <img
-              className={`w-8 sm:w-10 ${location.pathname === "/inbox" ? "opcaity-80" : "opacity-30"} hover:opacity-50 transition-opacity`}
-              src={vector}
-              alt="Ícone Inbox"
+            <Inbox
+              className={`w-8 h-8 sm:w-10 sm:h-10 text-pri ${location.pathname === "/inbox" ? "opacity-80" : "opacity-30"} hover:opacity-50 transition-opacity`}
               title="Inbox"
             />
           </Link>
@@ -50,11 +46,9 @@ function SideBar({ collapsed, setCollapsed }) {
           <div className="w-8 sm:w-15 h-0.5 bg-pri opacity-30 rounded"></div>
 
           {/*<Link to="/chamados">
-            <img
-              className={`w-8 sm:w-10 ${location.pathname === "/chamados" ? "opcaity-80" : "opacity-30"} hover:opacity-50 transition-opacity`}
-              src={vector2}
-              alt="Ícone Chamados"
-              title=""
+            <Monitor
+              className={`w-8 h-8 sm:w-10 sm:h-10 text-pri ${location.pathname === "/chamados" ? "opacity-80" : "opacity-30"} hover:opacity-50 transition-opacity`}
+              title="Chamados"
             />
           </Link>
 
@@ -70,7 +64,7 @@ function SideBar({ collapsed, setCollapsed }) {
 
           <Link to="/configuracoes">
             <img
-              className={`w-8 sm:w-10 ${location.pathname === "/configuracoes" ? "opcaity-80" : "opacity-30"} hover:opacity-50 transition-opacity`}
+              className={`w-8 sm:w-10 ${location.pathname === "/configuracoes" ? "opacity-80" : "opacity-30"} hover:opacity-50 transition-opacity sidebar-icon`}
               src={configuracao}
               alt="Ícone Configurações"
               title="Configurações"

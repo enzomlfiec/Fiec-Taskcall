@@ -41,6 +41,44 @@
 
 }
 
+:root {
+    --bg-login: url("/assets/Login2.png");
+}
+
+.claro {
+    /* Cores de fundo modo claro da paleta */
+    --color-fundo-profundo: #DDDEE3;
+    --color-fundo-fundo: #DDDEE3;
+    --color-fundo-medio: #F1F4F5;
+    --color-fundo-razo: #FFFFFF;
+
+    /* Textos & Botões modo claro */
+    --color-pri: #1F1D33;
+    --color-sec: #59566E;
+
+    /* Secundárias */
+    --color-sec-verde: #009F3D;
+    --color-sec-amarelo: #FF961D;
+    --color-sec-vermelho: #D9172A;
+    --color-sec-azul: #1772D9;
+    --color-borda: rgba(31, 29, 51, 0.658);
+
+    /* Background do login modo claro */
+    --bg-login: url("/assets/Login2Claro.png");
+}
+
+.bg-login {
+    background-image: var(--bg-login);
+}
+
+.claro .sidebar-icon {
+    filter: invert(1);
+}
+
+.claro .bg-\[url\(public\/assets\/login2\.png\)\] {
+    background-image: url("/assets/Login2Claro.png") !important;
+}
+
 .botao {
     width: 12.5rem;
     /* 50 * 0.25rem (ou 200px) */

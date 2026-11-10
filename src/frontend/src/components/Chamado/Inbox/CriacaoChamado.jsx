@@ -6,6 +6,7 @@ import mockChamados from "../../../assets/scripts/mock/mockChamados"
 function CriacaoChamado() {
     const [campoTitulo, setTitulo] = React.useState("")
     const [campoSala, setSala] = React.useState("")
+    const [campoNumeroSala, setNumeroSala] = React.useState(false)
     const [campoDescricao, setDescricao] = React.useState("")
     const [campoCategoria, setCategoria] = React.useState("")
     const [campoCargo, setCargo] = React.useState("")
@@ -25,7 +26,7 @@ function CriacaoChamado() {
 
         const newEntry = {
             id: mockChamados.length + 1,
-            nome:"Usuário Debug",
+            nome: "Usuário Debug",
             salvo: false,
             titulo: campoTitulo,
             sala: campoSala,
@@ -40,7 +41,7 @@ function CriacaoChamado() {
                 hora + ":" +
                 minuto,
             lixeira: false,
-            status: 0
+            status: 3
         }
 
         mockChamados.unshift(newEntry)
@@ -48,8 +49,15 @@ function CriacaoChamado() {
         navigate("/inbox")
     }
 
+    React.useEffect(() => {
+        if (campoSala !== "") {
+            const numero = parseInt(campoSala, 10);
+            setNumeroSala(!isNaN(numero));
+        }
+    }, [campoSala]);
+
     return (
-        <main className="flex min-h-screen w-screen items-center justify-center bg-[url(public/assets/login2.png)] bg-cover px-4 py-8 text-pri">
+        <main className="flex min-h-screen w-screen items-center justify-center bg-login bg-cover px-4 py-8 text-pri">
 
             <section className="flex w-full max-w-3xl flex-col gap-5 rounded-4xl border-2 border-sec p-6 backdrop-blur-2xl md:p-10">
 
@@ -74,7 +82,7 @@ function CriacaoChamado() {
 
                     {/* Titulo */}
 
-                 <div className="flex w-full flex-col gap-2">
+                    <div className="flex w-full flex-col gap-2">
                         <label
                             htmlFor="Titulo"
                             className="font-bold text-pri"
@@ -94,11 +102,10 @@ function CriacaoChamado() {
                             placeholder="Insira seu Titulo"
                             className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-pri placeholder:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                         />
-                    </div> 
+                    </div>
 
 
                     {/* SALA */}
-
                     <div className="flex w-full flex-col gap-2">
                         <label
                             htmlFor="sala"
@@ -112,13 +119,18 @@ function CriacaoChamado() {
 
                         <input
                             id="sala"
-                            type="text"
+                            type="number"
                             required
                             value={campoSala}
                             onChange={(e) => setSala(e.target.value)}
                             placeholder="Ex: Sala 39"
-                            className="w-full rounded-md border border-borda bg-fundo-razo p-3 text-pri placeholder:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                            className="w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none rounded-md border border-borda bg-fundo-razo p-3 text-pri placeholder:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                         />
+                        {campoSala !== "" && !campoNumeroSala && (
+                            <p className="text-sm text-accent">
+                                Precisa ser um número
+                            </p>
+                        )}
                     </div>
 
 
@@ -158,7 +170,7 @@ function CriacaoChamado() {
 
 
                     {/* CARGO */}
-{/* 
+                    {/* 
                     <div className="flex w-full flex-col gap-2">
                         <label
                             htmlFor="cargo"
@@ -237,7 +249,7 @@ function CriacaoChamado() {
                             type="submit"
                             className="botao h-11 min-w-40 rounded-md bg-accent px-6 text-base font-bold text-pri transition hover:brightness-110"
                         >
-                            Enviar chamado
+                            Criar Chamado
                         </button>
                     </div>
 

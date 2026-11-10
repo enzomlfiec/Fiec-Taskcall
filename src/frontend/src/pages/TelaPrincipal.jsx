@@ -12,7 +12,7 @@ const TelaPrincipal = ({ collapsed, setCollapsed }) => {
 
     return (
         <>
-            <div className=" flex z-10 min-h-screen w-full bg-[url(public/assets/login2.png)] bg-cover bg-center justify-center items-stretch overflow-x-hidden overflow-y-auto lg:overflow-y-hidden">
+            <div className=" flex z-10 min-h-screen w-full bg-login bg-cover bg-center justify-center items-stretch overflow-x-hidden overflow-y-auto lg:overflow-y-hidden">
                 <SideBar
                     collapsed={collapsed}
                     setCollapsed={setCollapsed}
@@ -90,7 +90,7 @@ const TelaPrincipal = ({ collapsed, setCollapsed }) => {
                                 </div>
 
                                 {/* Sombra da prévia */}
-                                <div className=" absolute bottom-0 left-0 right-0 h-40 bg-linear-to-t from-[#1d192b] via-[#1d192b]/80 to-transparent pointer-events-none"></div>
+                                <div className=" absolute bottom-0 left-0 right-0 h-40 bg-linear-to-t from-fundo-fundo via-fundo-fundo/80 to-transparent pointer-events-none"></div>
                             </div>
 
                             <button

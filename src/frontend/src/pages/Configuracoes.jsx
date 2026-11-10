@@ -16,8 +16,11 @@ import { Link } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import ELSD from "../assets/scripts/ELSD";
 
-function Configuracoes({ collapsed, setCollapsed }) {
-    const [corTema, setCorTema] = React.useState(() => ELSD.read("corTema", "system"));
+function Configuracoes({ collapsed, setCollapsed, corTema: propCorTema, setCorTema: propSetCorTema }) {
+    const [corTemaLocal, setCorTemaLocal] = React.useState(() => ELSD.read("corTema", "system"));
+    const corTema = propCorTema !== undefined ? propCorTema : corTemaLocal;
+    const setCorTema = propSetCorTema || setCorTemaLocal;
+
     const [notificacoes, setNotificacoes] = React.useState(() => ELSD.read("notifications", true));
     const [symbolStatus, setSymbolStatus] = React.useState(() => ELSD.read("symbolStatus", true));
     const [simpleAnims, setSimpleAnims] = React.useState(() => ELSD.read("simpleAnims", false));
@@ -56,16 +59,16 @@ function Configuracoes({ collapsed, setCollapsed }) {
     const texto = fontSize === "small" ? "text-xs sm:text-sm" : fontSize === "large" ? "text-base sm:text-lg" : "text-sm sm:text-base";
 
     return (
-        <div className="flex z-10 min-h-screen w-full bg-[url(public/assets/login2.png)] bg-cover bg-center justify-center items-stretch overflow-x-hidden overflow-y-auto">
+        <div className="flex z-10 min-h-screen w-screen flex-col bg-login bg-cover bg-center justify-center items-center overflow-x-hidden overflow-y-auto">
             <SideBar collapsed={collapsed} setCollapsed={setCollapsed} />
+            <main className={`flex flex-col justify-center w-full min-w-0 min-h-screen sm:px-18 lg:px-30 py-8 transition-all duration-300 ${!collapsed ? "ml-16 sm:ml-20" : "ml-0"}`}>
 
-            <main className={`w-full min-w-0 min-h-screen px-4 sm:px-6 lg:px-10 py-8 transition-all duration-300 ${!collapsed ? "ml-16 sm:ml-20" : "ml-0"}`}>
-                <div className="mb-8 flex items-center gap-4">
-                    <Settings className="h-12 w-12 text-pri" />
-                    <div className="flex flex-col">
+                <div className="flex flex-col mb-8 pl-4 gap-2">
+                    <div className="flex flex-row gap-3">
+                        <Settings className="h-12 w-12 text-pri" />
                         <h1 className="text-3xl font-bold text-pri sm:text-4xl">Configurações</h1>
-                        <p className="text-sm text-sec sm:text-base">Personalize sua experiência no sistema.</p>
                     </div>
+                        <p className="text-sm text-sec sm:text-base">Personalize sua experiência no sistema.</p>
                 </div>
 
                 <section className="grid grid-cols-1 gap-5 lg:grid-cols-2">

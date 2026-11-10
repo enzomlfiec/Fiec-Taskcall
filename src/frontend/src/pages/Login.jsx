@@ -42,7 +42,7 @@ function Login() {
     // const userInfo = userMockData.find(validarUsuario)
 
     return (
-        <div className="flex flex-col relative h-screen w-screen items-center justify-center bg-[url(public/assets/login2.png)] bg-cover">
+        <div className="flex flex-col relative h-screen w-screen items-center justify-center bg-login bg-cover">
             <div className="flex flex-col relative h-screen w-screen items-center justify-center bottom-10">
                 <img id="logo" src="public/assets/logo/logo-hor.png" className="w-125"></img>
 

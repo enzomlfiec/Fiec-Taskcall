@@ -1,7 +1,30 @@
-import { Bookmark, EllipsisIcon } from "lucide-react"
+import {
+    Bookmark,
+    CalendarDays,
+    CircleUserRound,
+    MapPin,
+    Monitor,
+    Tag,
+    X,
+} from "lucide-react"
 import React from "react"
-import { Trash } from "lucide-react"
 import { Clock4, TriangleAlert, CircleEllipsis, CircleAlert, CircleCheck, } from "lucide-react";
+
+const coresStatus = {
+    0: "bg-sec-amarelo/15 text-sec-amarelo",
+    1: "bg-sec-azul/15 text-sec-azul",
+    2: "bg-sec-verde/15 text-sec-verde",
+    3: "bg-fundo-razo text-sec",
+    4: "bg-sec-vermelho/15 text-sec-vermelho",
+};
+
+const fundosStatus = {
+    0: "bg-sec-amarelo",
+    1: "bg-sec-azul",
+    2: "bg-sec-verde",
+    3: "bg-fundo-razo",
+    4: "bg-sec-vermelho",
+};
 
 const ChamadoBullet = ({
     index,
@@ -89,10 +112,10 @@ const ChamadoBullet = ({
             })
 
             setProxStatusInfo({
-                StatusID: 3,
-                cor: "sec-amarelo",
-                nome: "Em análise.",
-                icone: CircleEllipsis,
+                StatusID: 1,
+                cor: "sec-azul",
+                nome: "Em progresso.",
+                icone: Clock4,
             })
 
         } else if (mockInfo.status == 3) {
@@ -105,10 +128,10 @@ const ChamadoBullet = ({
             })
 
             setProxStatusInfo({
-                StatusID: 4,
-                cor: "sec-vermelho",
-                nome: "Urgência.",
-                icone: TriangleAlert,
+                StatusID: 0,
+                cor: "sec-amarelo",
+                nome: "Não visualizado.",
+                icone: CircleAlert,
             })
 
         } else if (mockInfo.status == 4) {
@@ -194,6 +217,12 @@ const ChamadoBullet = ({
                         </p>
                     </div>
 
+                    <div className="hidden min-w-0 flex-1 border-r-2 border-borda/30 px-3 lg:block">
+                        <p className="truncate text-pri">
+                            {mockInfo.titulo}
+                        </p>
+                    </div>
+
                     <div className="hidden min-w-0 flex-1 border-r-2 border-borda/30 px-3 sm:block">
                         <p className="truncate text-borda">
                             {mockInfo.categoria}
@@ -203,12 +232,6 @@ const ChamadoBullet = ({
                     <div className="hidden min-w-0 flex-1 border-r-2 border-borda/30 px-3 md:block">
                         <p className="truncate text-borda">
                             {mockInfo.sala}
-                        </p>
-                    </div>
-
-                    <div className="hidden min-w-0 flex-1 border-r-2 border-borda/30 px-3 lg:block">
-                        <p className="truncate text-pri">
-                            {mockInfo.titulo}
                         </p>
                     </div>
 
@@ -237,110 +260,131 @@ const ChamadoBullet = ({
 
 
             <div
-                className={`bg-fundo-profundo/80 backdrop-blur-lg inset-0 h-screen w-screen opacity-0 absolute flex z-50 ${mostrarChamado
+                className={`fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black/50 p-4 backdrop-blur-[3px] transition-all duration-300 ${mostrarChamado
                     ? "opacity-100"
-                    : "invisible"
-                    } justify-center items-center align-middle transition-all duration-500`}
-                onClick={() => setMostrarChamado(!mostrarChamado)}
+                    : "pointer-events-none invisible opacity-0"
+                    }`}
+                onClick={() => setMostrarChamado(false)}
             >
-
                 <div
-                    className="h-90 w-200 rounded-4xl bg-fundo-razo text-pri flex flex-col items-baseline justify-baseline"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby={`chamado-titulo-${mockInfo.id}`}
+                    className={`poppins flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-4xl border-2 border-borda bg-fundo-fundo text-pri shadow-lg shadow-black/20 transition-all duration-300 ${
+                        mostrarChamado ? "scale-100" : "scale-95"
+                    }`}
                     onClick={(e) => e.stopPropagation()}
                 >
-
-                    <div className="flex flex-col poppins gap-2 p-5 bg-fundo-fundo border-2 border-borda rounded-4xl h-full w-full">
-
-                        <h1 className="text-4xl font-medium">
-                            {mockInfo.titulo}
-                        </h1>
-
-
-                        <div className="flex flex-row gap-3 justify-between">
-
-                            <div className="flex flex-row gap-3">
-                                <p>
-                                    Chamado:
-                                    <span className="font-bold">
-                                        {mockInfo.id}
-                                    </span>
-                                </p>
-
-                                <p>
-                                    • Por:
-                                    <span className="font-bold">
-                                        {mockInfo.nome}
-                                    </span>
-                                </p>
-
-                                <p>
-                                    • Cargo:
-                                    <span className="font-bold">
-                                        {mockInfo.cargo}
-                                    </span>
-                                </p>
-                            </div>
-
-
-                            <div className=" flex w-7 h-7 justify-center items-center bg-pri text-black rounded-full hover:scale-105 cursor-pointer"
-                                onClick={() => { setMostrarChamado(false) }}
+                    <header className="flex items-start justify-between gap-4 border-b border-borda/30 px-6 py-5 sm:px-8">
+                        <div className="min-w-0">
+                            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-borda">
+                                Chamado #{mockInfo.id}
+                            </p>
+                            <h1
+                                id={`chamado-titulo-${mockInfo.id}`}
+                                className="wrap-break-word text-2xl font-semibold sm:text-3xl"
                             >
+                                {mockInfo.titulo || mockInfo.dispositivo}
+                            </h1>
+                        </div>
+                        <button
+                            type="button"
+                            aria-label="Fechar detalhes do chamado"
+                            onClick={() => setMostrarChamado(false)}
+                            className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full bg-fundo-razo text-pri transition-all duration-200 hover:scale-105 hover:brightness-125"
+                        >
+                            <X size={20} />
+                        </button>
+                    </header>
 
-                                <div className="">
-                                    X
+                    <div className="scroll flex flex-col gap-6 overflow-y-auto px-6 py-6 sm:px-8">
+                        <div className="flex flex-wrap items-center gap-3">
+                            <span
+                                className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium text-white ${
+                                    fundosStatus[statusInfo.StatusID]
+                                }`}
+                            >
+                                <IconeStatus size={16} />
+                                {statusInfo.nome}
+                            </span>
+                            <span className="inline-flex items-center gap-2 text-sm text-borda">
+                                <CalendarDays size={16} />
+                                {mockInfo.data}
+                            </span>
+                        </div>
+
+                        <section aria-label="Informações do chamado">
+                            <div className="grid gap-3 sm:grid-cols-2">
+                                <div className="flex items-center gap-3 rounded-3xl border-2 border-borda/30 bg-fundo-medio/80 p-4 transition-all duration-300 hover:brightness-110">
+                                    <CircleUserRound className="shrink-0 text-borda" size={20} />
+                                    <div className="min-w-0">
+                                        <p className="text-xs text-borda">Solicitante</p>
+                                        <p className="truncate font-medium">{mockInfo.nome}</p>
+                                        <p className="truncate text-sm text-borda">{mockInfo.cargo}</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3 rounded-3xl border-2 border-borda/30 bg-fundo-medio/80 p-4 transition-all duration-300 hover:brightness-110">
+                                    <MapPin className="shrink-0 text-borda" size={20} />
+                                    <div className="min-w-0">
+                                        <p className="text-xs text-borda">Sala</p>
+                                        <p className="truncate font-medium">{mockInfo.sala}</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3 rounded-3xl border-2 border-borda/30 bg-fundo-medio/80 p-4 transition-all duration-300 hover:brightness-110">
+                                    <Tag className="shrink-0 text-borda" size={20} />
+                                    <div className="min-w-0">
+                                        <p className="text-xs text-borda">Categoria</p>
+                                        <p className="truncate font-medium">{mockInfo.categoria}</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3 rounded-3xl border-2 border-borda/30 bg-fundo-medio/80 p-4 transition-all duration-300 hover:brightness-110">
+                                    <Monitor className="shrink-0 text-borda" size={20} />
+                                    <div className="min-w-0">
+                                        <p className="text-xs text-borda">Dispositivo</p>
+                                        <p className="truncate font-medium">{mockInfo.dispositivo}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </section>
 
-                        <h2 className="font-bold">
-                            Descrição:
-                        </h2>
-                        <div className="p-2 bg-fundo-razo rounded h-30">
-
-                            <p className="flex font-light">
-                                {mockInfo.descricao}
+                        <section>
+                            <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-borda">
+                                Descrição
+                            </h2>
+                            <p className="min-h-24 whitespace-pre-wrap rounded-3xl border-2 border-borda/30 bg-fundo-razo p-4 leading-relaxed text-pri">
+                                {mockInfo.descricao || "Nenhuma descrição informada."}
                             </p>
-
-                        </div>
-                        <div className="flex flex-row justify-between">
-                            <div className="flex flex-row gap-4 w-full">
-                                <p>
-                                    • Sala: {mockInfo.sala}
-                                </p>
-
-                                <p>
-                                    • Máquina:{mockInfo.dispositivo}
-                                </p>
-                            </div>
-                            <div className="flex justify-end w-full">
-                                <p>
-                                    Status: {statusInfo.nome}
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="flex justify-end gap-3 
-                        ">
-                            <button className="flex flex-row gap-2 justify-center items-center h-10 p-2  hover:scale-105 transition-all duration-200 rounded-sm bg-sec-verde
-                            "
-                            >
-                                <Bookmark />
-                                Favoritar
-                            </button>
-                            <button
-                                className="flex flex-row gap-2 cursor-pointer justify-center items-center h-10 p-2 hover:scale-105 transition-all duration-200 rounded-sm bg-accent"
-                                oonClick={deletarChamado}
-                            >
-                                <Trash /> Enviar à Lixeira
-                            </button>
-                            <button
-                                className={`h-10 p-2 hover:scale-105 transition-all duration-200 rounded-sm bg-${proxStatusInfo.cor}`}
-                            >
-                                Marcar como: "{proxStatusInfo.nome}"
-                            </button>
-
-                        </div>
+                        </section>
                     </div>
+
+                    <footer className="flex flex-col-reverse gap-3 border-t border-borda/30 px-6 py-4 sm:flex-row sm:justify-end sm:px-8">
+                        <button
+                            type="button"
+                            className="flex h-11 cursor-pointer items-center justify-center gap-2 rounded-lg bg-sec-verde px-4 font-medium text-white transition-all duration-200 hover:scale-[1.02] hover:brightness-110"
+                        >
+                            <Bookmark size={18} />
+                            Favoritar
+                        </button>
+                        {mockInfo.status == 3 && (
+                            <button
+                                type="button"
+                                className="flex h-11 cursor-pointer items-center justify-center gap-2 rounded-lg bg-accent px-4 font-medium text-pri shadow-[0px_4px_0px_0px_#740510] transition-all duration-150 hover:scale-[1.02] active:scale-[0.98]"
+                                onClick={deletarChamado}
+                            >
+                                <X size={18} />
+                                Recusar
+                            </button>
+                        )}
+                        <button
+                            type="button"
+                            className={`flex h-11 cursor-pointer items-center justify-center gap-2 rounded-lg px-4 font-medium text-white transition-all duration-200 hover:scale-[1.02] hover:brightness-110 ${
+                                fundosStatus[proxStatusInfo.StatusID]
+                            }`}
+                        >
+                            <Clock4 size={18} />
+                            Marcar como: {proxStatusInfo.nome}
+                        </button>
+                    </footer>
                 </div>
             </div>
         </>
