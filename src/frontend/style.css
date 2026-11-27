@@ -1,0 +1,306 @@
+@import "tailwindcss";
+
+.poppins {
+    font-family: "Poppins", sans-serif;
+}
+
+@theme {
+
+    /* Cor principal */
+    --color-accent: #D9172A;
+
+    /* Cores de fundo */
+    --color-fundo-profundo: #141221;
+    --color-fundo-fundo: #1F1D33;
+    --color-fundo-medio: #26253E;
+    --color-fundo-razo: #3A385C;
+
+    /* Cores de fonte, primaria e secundária */
+
+    --color-pri: #FFFFFF;
+    --color-sec: #B2B1C4;
+
+    /* Cores secundárias */
+
+    --color-sec-verde: #0CC955;
+    --color-sec-amarelo: #FF961D;
+    --color-sec-vermelho: #D9172A;
+    --color-sec-azul: #1772D9;
+    --color-borda: #E0E0F090;
+    /* Cores de fundo modo claro "cl" */
+    --color-cl-fundo: #DDDEE3;
+    --color-cl-medio: #F1F4F5;
+    --color-cl-razo: #FFFFFF;
+
+
+    --color-debug: #ff00ff;
+
+    --animate-ping-s: ping 5s ease-out infinite;
+    --animate-ping-m: ping 2.5s ease-out infinite;
+    --animate-ping-f: ping 1s ease-out infinite;
+
+}
+
+:root {
+    --bg-login: url("/assets/Login2.png");
+}
+
+.claro {
+    /* Cores de fundo modo claro da paleta */
+    --color-fundo-profundo: #DDDEE3;
+    --color-fundo-fundo: #DDDEE3;
+    --color-fundo-medio: #F1F4F5;
+    --color-fundo-razo: #FFFFFF;
+
+    /* Textos & Botões modo claro */
+    --color-pri: #1F1D33;
+    --color-sec: #59566E;
+
+    /* Secundárias */
+    --color-sec-verde: #007A2F;
+    --color-sec-amarelo: #9E5800;
+    --color-sec-vermelho: #D9172A;
+    --color-sec-azul: #1772D9;
+    --color-borda: rgba(31, 29, 51, 0.658);
+
+    /* Background do login modo claro */
+    --bg-login: url("/assets/Login2Claro.png");
+}
+
+.bg-login {
+    background-image: var(--bg-login);
+}
+
+.claro .sidebar-icon {
+    filter: invert(1);
+}
+
+.claro input::placeholder,
+.claro textarea::placeholder {
+    color: #3d3a54;
+    opacity: 0.9;
+}
+
+.claro .bg-\[url\(public\/assets\/login2\.png\)\] {
+    background-image: url("/assets/Login2Claro.png") !important;
+}
+
+.botao {
+    width: 12.5rem;
+    /* 50 * 0.25rem (ou 200px) */
+    height: 2.5rem;
+    /* 10 * 0.25rem (ou 40px) */
+    border-radius: 0.375rem;
+    /* rounded-md (6px) */
+    color: #ffffff;
+    box-shadow: 0px 8px 0px 0px #740510;
+    transition-property: transform;
+    transition-duration: 150ms;
+}
+
+.botao:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.desabilitado {
+    opacity: 25%;
+}
+
+.desabilitado:hover {
+    transform: scale(1.0);
+    cursor: not-allowed;
+}
+
+.checkboxFalse {
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid color-mix(in srgb, var(--color-borda) 55%, transparent);
+    height: 22px;
+    width: 22px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.checkboxTrue {
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid var(--color-accent);
+    background-color: var(--color-accent);
+    height: 22px;
+    width: 22px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 12px;
+}
+
+.scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background: var(--color-sec);
+    opacity: 10%;
+    border-radius: 1000px;
+    transition: all 0.4s ease-in-out;
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--color-pri);
+    opacity: 100%;
+}
+
+.checkbox {
+    appearance: none;
+    border-color: var(--color-borda);
+    border-radius: 25%;
+    background-color: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.checkbox:checked {
+    background-color: var(--color-pri);
+    border-color: var(--color-pri);
+}
+
+html.font-small {
+    font-size: 14px;
+}
+
+html.font-default {
+    font-size: 16px;
+}
+
+html.font-large {
+    font-size: 18px;
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+}
+
+.checkbox:focus-visible,
+.checkboxFalse:focus-visible,
+.checkboxTrue:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* SweetAlert2 - Tema FIEC Taskcall */
+.taskcall-swal-container {
+    background: rgba(12, 10, 24, 0.55) !important;
+    backdrop-filter: blur(5px);
+    padding: 1rem !important;
+}
+
+.taskcall-swal-popup {
+    font-family: "Poppins", sans-serif !important;
+    background: var(--color-fundo-fundo) !important;
+    color: var(--color-pri) !important;
+    border: 2px solid color-mix(in srgb, var(--color-borda) 45%, transparent) !important;
+    border-radius: 1.75rem !important;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45) !important;
+    padding: 1.75rem 1.5rem !important;
+    width: min(100%, 28rem) !important;
+}
+
+.taskcall-swal-title {
+    color: var(--color-pri) !important;
+    font-weight: 700 !important;
+    font-size: 1.35rem !important;
+    line-height: 1.3 !important;
+}
+
+.taskcall-swal-html {
+    color: var(--color-sec) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.55 !important;
+}
+
+.taskcall-swal-actions {
+    gap: 0.75rem !important;
+    margin-top: 1.25rem !important;
+    width: 100% !important;
+}
+
+.taskcall-swal-confirm {
+    background-color: var(--color-accent) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    padding: 0.7rem 1.5rem !important;
+    border-radius: 0.65rem !important;
+    box-shadow: 0px 5px 0px 0px #740510 !important;
+    cursor: pointer !important;
+    border: none !important;
+    transition: transform 150ms ease, filter 150ms ease, box-shadow 150ms ease !important;
+}
+
+.taskcall-swal-confirm:hover {
+    transform: scale(1.03);
+    filter: brightness(1.08);
+}
+
+.taskcall-swal-confirm:active {
+    transform: translateY(2px);
+    box-shadow: 0px 3px 0px 0px #740510 !important;
+}
+
+.taskcall-swal-confirm:focus-visible {
+    outline: 2px solid var(--color-pri) !important;
+    outline-offset: 3px !important;
+}
+
+.taskcall-swal-cancel {
+    background-color: var(--color-fundo-razo) !important;
+    color: var(--color-pri) !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    padding: 0.7rem 1.5rem !important;
+    border-radius: 0.65rem !important;
+    border: 1px solid color-mix(in srgb, var(--color-borda) 35%, transparent) !important;
+    cursor: pointer !important;
+    transition: transform 150ms ease, filter 150ms ease !important;
+}
+
+.taskcall-swal-cancel:hover {
+    transform: scale(1.03);
+    filter: brightness(1.1);
+}
+
+.taskcall-swal-cancel:focus-visible {
+    outline: 2px solid var(--color-accent) !important;
+    outline-offset: 2px !important;
+}
+
+.taskcall-swal-progress {
+    background: var(--color-accent) !important;
+}
+
+.taskcall-swal-popup .swal2-success-circular-line-left,
+.taskcall-swal-popup .swal2-success-circular-line-right,
+.taskcall-swal-popup .swal2-success-fix {
+    background-color: transparent !important;
+}
+
+.taskcall-swal-popup .swal2-success-ring {
+    border-color: color-mix(in srgb, var(--color-sec-verde) 35%, transparent) !important;
+}
+
+.taskcall-swal-popup .swal2-success-line-tip,
+.taskcall-swal-popup .swal2-success-line-long {
+    background-color: var(--color-sec-verde) !important;
+}
+
+.taskcall-swal-popup .swal2-loader {
+    border-color: var(--color-accent) transparent var(--color-accent) transparent !important;
+}
